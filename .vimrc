@@ -33,6 +33,7 @@ set shiftwidth=4
 set background=dark
 set textwidth=80
 set autoindent
+set mouse = a
 
 if has("syntax")
     syntax on
