@@ -23,4 +23,19 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-	" Put your non-Plugin stuff after this line
+	" Put your non-Plugin stuff after this line"
+
+set number
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set background=dark
+set textwidth=80
+set autoindent
+
+if has("syntax")
+    syntax on
+    filetype on
+    au BufNewFile,BufRead *.jq set filetype=javascript
+endif
