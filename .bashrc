@@ -1,4 +1,4 @@
-#
+    #
 # ~/.bashrc
 source /etc/profile
 

@@ -7,8 +7,18 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'wincent/command-t'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -18,12 +28,13 @@ filetype plugin indent on    " required
 "
 " Brief help
 " :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginInstall    - installs plugins; append `!` to update or just
+:PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
+" :PluginClean      - confirms removal of unused plugins; append `!` to
 " see :h vundle for more details or wiki for FAQ
-	" Put your non-Plugin stuff after this line"
+" Put your non-Plugin stuff after this line
+
 
 set number
 set expandtab
@@ -33,7 +44,7 @@ set shiftwidth=4
 set background=dark
 set textwidth=80
 set autoindent
-set mouse = a
+set mouse=a
 
 if has("syntax")
     syntax on
