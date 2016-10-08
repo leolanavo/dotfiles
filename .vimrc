@@ -50,7 +50,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set t_Co=256
 
-colorscheme darker-robin
+colorscheme dark-ruby
 
 if has("syntax")
     syntax on
@@ -58,12 +58,15 @@ if has("syntax")
     au BufNewFile,BufRead *.jq set filetype=javascript
 endif
 
-let g:airline_theme='wombat'
+let g:airline_theme='ravenpower'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
 
 autocmd VimEnter * NERDTree
 
