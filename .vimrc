@@ -89,7 +89,7 @@ endif
 "=== Colorscheme options ===
 "===========================
 
-colorscheme dark-ruby
+colorscheme codeblocks_dark
 
 "=========================
 "=== Syntastic options ===
@@ -105,16 +105,16 @@ set statusline+=%*
 " Just leave one of these uncommented
 
 "MAC0216 flags
-let g:syntastic_c_compiler_options = '-Wall -std=c99 -O2'
+"let g:syntastic_c_compiler_options = '-Wall -std=c99 -O2'
 
 "MAC121 flags
-"let g:syntastic_c_compiler_options = '-Wall -ansi -pendantic -O2' 
+let g:syntastic_c_compiler_options = '-Wall -ansi -pendantic -O2' 
 
 "=======================
 "=== Airline Options ===
 "=======================
 
-let g:airline_theme='ravenpower'
+let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -132,5 +132,4 @@ endif
 "========================
 
 autocmd VimEnter * NERDTree
-
 
