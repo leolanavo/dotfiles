@@ -105,6 +105,7 @@ export PATH=$PATH:$HOME/.local/bin/
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export GDM_LANG="en_US.UTF-8"
+export GCC_COLORS=1
 
 export PS1="\[$(tput bold)\]\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;14m\]\H\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;214m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]"
 
