@@ -132,4 +132,4 @@ endif
 "========================
 
 autocmd VimEnter * NERDTree
-
+let g:NERDTreeWinPos = "right"
