@@ -112,6 +112,4 @@ export PS1="\[$(tput bold)\]\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
-        export TERM=xterm-256color
- fi
+export TERM=xterm-256color
