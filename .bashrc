@@ -7,6 +7,8 @@ alias cls='clear'
 alias grep='grep --color=auto'
 alias netbeans='/usr/local/netbeans-7.4/bin/netbeans'
 alias bd='psql -h data.ime.usp.br -p 23001 -U u7577469 -d bd_7577469'
+alias javac='javac -cp /usr/local/algs4/algs4.jar'
+alias java='java -cp /usr/local/algs4/algs4.jar'
 
 shopt -s cdspell
 shopt -s cdable_vars
