@@ -131,6 +131,12 @@ endif
 autocmd VimEnter * NERDTree
 let g:NERDTreeWinPos = "right"
 
+"=============================
+"=== NerdCommenter Options ===
+"=============================
+
+let g:NERDSpaceDelims = 1
+
 "#####################
 "### Theme Options ###
 "#####################
