@@ -1,6 +1,6 @@
-"*************************
-"*** Vim Configuration ***
-"*************************
+"****************************
+"*** NeoVim Configuration ***
+"****************************
 
 "|--------------------------|
 "|SUBTITLE:                 |
@@ -23,21 +23,40 @@ call vundle#begin()
 "=== Plugin List ===
 "===================
 
+"--------------
+"--- Vundle ---
+"--------------
+
 Plugin 'VundleVim/Vundle.vim'
+
+"---------------
+"--- Utility ---
+"---------------
+
+Plugin 'ryanoasis/vim-devicons' 
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'jakedouglas/exuberant-ctags'
+Plugin 'wesq3/vim-windowswap'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'reedes/vim-wheel'
 Plugin 'danro/rename.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'wincent/command-t'
 Plugin 'Conque-GDB'
+Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'mklabs/split-term.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sheerun/vim-polyglot'
+"Plugin 'ervandew/supertab'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'Shougo/neoinclude.vim'
+"Plugin 'valloric/youcompleteme'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -45,6 +64,13 @@ filetype plugin indent on    " required
 "#######################
 "### General Options ###
 "#######################
+
+"########################
+"### Mappings Options ###
+"########################
+
+map <F8> :NERDTreeToggle<CR>
+map <F9> :TagbarToggle<CR>
 
 "=========================
 "=== Interface Options ===
@@ -88,6 +114,40 @@ endif
 "### Plugin's Options ###
 "########################
 
+"========================
+"=== Deoplete Options ===
+"========================
+
+let g:deoplete#enable_at_startup = 1
+
+"=======================
+"=== Tagbar options  ===
+"=======================
+
+let g:tagbar_autoclose = 0
+let g:tagbar_width = 30
+
+"==========================
+"=== Split-Term options ===
+"==========================
+
+set splitbelow
+
+"===========================
+"=== Window Swap options ===
+"===========================
+
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <F5> :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <F6> :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <F7> :call WindowSwap#EasyWindowSwap()<CR>
+
+"=============================
+"=== YouCompleteMe options ===
+"=============================
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'  
+
 "=========================
 "=== Syntastic options ===
 "=========================
@@ -96,16 +156,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"-------------------------
-"--- Compilation Flags ---
-"-------------------------
-" Just leave one of these uncommented
-
-"MAC0216 flags
-"let g:syntastic_c_compiler_options = '-Wall -std=c99'
-
-"MAC121 flags
-"let g:syntastic_c_compiler_options = '-Wall -ansi -pendantic' 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "=======================
 "=== Airline Options ===
@@ -115,11 +169,6 @@ let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 if !exists('g:airline_symbols')
     let g:airline_symbols={}
 endif
@@ -127,15 +176,6 @@ endif
 "========================
 "=== NerdTree Options ===
 "========================
-
-autocmd VimEnter * NERDTree
-let g:NERDTreeWinPos = "right"
-
-"=============================
-"=== NerdCommenter Options ===
-"=============================
-
-let g:NERDSpaceDelims = 1
 
 "#####################
 "### Theme Options ###
