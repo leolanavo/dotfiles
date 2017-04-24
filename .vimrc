@@ -33,30 +33,50 @@ Plugin 'VundleVim/Vundle.vim'
 "--- Utility ---
 "---------------
 
-Plugin 'ryanoasis/vim-devicons' 
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'jakedouglas/exuberant-ctags'
-Plugin 'wesq3/vim-windowswap'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'kien/ctrlp.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'reedes/vim-wheel'
 Plugin 'danro/rename.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'wincent/command-t'
-Plugin 'Conque-GDB'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'reedes/vim-wheel'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'wesq3/vim-windowswap'
 Plugin 'mklabs/split-term.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'terryma/vim-multiple-cursors'
+
+"---------------------
+"--- Code Checking ---
+"---------------------
+
+Plugin 'Conque-GDB'
+Plugin 'scrooloose/syntastic'
+
+"-----------------------
+"--- Git Integration ---
+"-----------------------
+
 Plugin 'tpope/vim-fugitive'
+
+"--------------
+"--- Beauty ---
+"--------------
+
+Plugin 'bling/vim-airline'
 Plugin 'sheerun/vim-polyglot'
-"Plugin 'ervandew/supertab'
+Plugin 'ryanoasis/vim-devicons' 
+Plugin 'jakedouglas/exuberant-ctags'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'vim-airline/vim-airline-themes'
+
+"---------------------
+"--- Auto Complete ---
+"---------------------
+
+Plugin 'zchee/deoplete-clang'
+Plugin 'zchee/deoplete-jedi'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'Shougo/neoinclude.vim'
-"Plugin 'valloric/youcompleteme'
+Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'poppyschmo/deoplete-latex'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -71,6 +91,7 @@ filetype plugin indent on    " required
 
 map <F8> :NERDTreeToggle<CR>
 map <F9> :TagbarToggle<CR>
+map <C-g> :10Term<CR>
 
 "=========================
 "=== Interface Options ===
@@ -115,10 +136,12 @@ endif
 "########################
 
 "========================
-"=== Deoplete Options ===
+"=== Deoplete options ===
 "========================
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = '/lib/llvm/build/lib/libclang.so' 
+let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
 
 "=======================
 "=== Tagbar options  ===
@@ -133,6 +156,23 @@ let g:tagbar_width = 30
 
 set splitbelow
 
+"=========================
+"=== Vim-Wheel options ===
+"=========================
+
+let g:wheel#map#mouse = 1
+
+"================================
+"=== Multiple Cursors options ===
+"================================
+
+let g:multi_cursor_use_default_mapping=0
+
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
 "===========================
 "=== Window Swap options ===
 "===========================
@@ -141,12 +181,6 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <F5> :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <F6> :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <F7> :call WindowSwap#EasyWindowSwap()<CR>
-
-"=============================
-"=== YouCompleteMe options ===
-"=============================
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'  
 
 "=========================
 "=== Syntastic options ===
@@ -158,7 +192,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "=======================
@@ -173,9 +207,12 @@ if !exists('g:airline_symbols')
     let g:airline_symbols={}
 endif
 
-"========================
-"=== NerdTree Options ===
-"========================
+"==============================
+"=== NERDCommenter Options ===
+"==============================
+
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
 
 "#####################
 "### Theme Options ###
