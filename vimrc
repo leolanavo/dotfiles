@@ -92,6 +92,7 @@ filetype plugin indent on    " required
 map <silent> <F8> :NERDTreeToggle<CR>
 map <silent> <F9> :TagbarToggle<CR>
 map <silent> <C-g> :10Term<CR>
+map <C-s> :SyntasticToggleMode<CR>
 
 "=========================
 "=== Interface Options ===
@@ -117,7 +118,7 @@ set autoindent
 "=== Coloring Options ===
 "========================
 
-" set termguicolors
+set termguicolors
 set t_Co=256 "Enable the terminal to recognize 256 colors
 set background=dark
 
@@ -142,6 +143,9 @@ endif
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path = '/lib/llvm/build/lib/libclang.so' 
 let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
+
+autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
+let g:JavaComplete_LibsPath = '~/Programação/MAC323/algs4.jar'
 
 "=======================
 "=== Tagbar options  ===
