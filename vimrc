@@ -89,9 +89,9 @@ filetype plugin indent on    " required
 "### Mappings Options ###
 "########################
 
-map <F8> :NERDTreeToggle<CR>
-map <F9> :TagbarToggle<CR>
-map <C-g> :10Term<CR>
+map <silent> <F8> :NERDTreeToggle<CR>
+map <silent> <F9> :TagbarToggle<CR>
+map <silent> <C-g> :10Term<CR>
 
 "=========================
 "=== Interface Options ===
