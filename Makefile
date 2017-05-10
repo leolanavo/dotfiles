@@ -1,21 +1,40 @@
+NVIMDIR  := $(HOME)/.config/nvim
+FONTSDIR := $(HOME)/.customfonts
+VIMDIR   := $(HOME)/.vim 
+PWD      := $(shell pwd)
+
+LINK	 := ln -sf
+CLONE    := git clone
+
+NVIM     := init.vim
+INITNVIM := $(patsubst %, $(NVIMDIR)/%, $(NVIM))
+
+FILES 	 := vimrc inputrc bashrc tmux.conf gitconfig zshrc
+DOTFILES := $(patsubst %, $(HOME)/.%, $(FILES))
+
+$(NVIMDIR):
+	mkdir -p $@
+
 .PHONY: dotfiles
-	ln -f vimrc ~/.vimrc
-	ln -f inputrc ~/.inputrc
-	ln -f gitconfig ~/.gitconfig
-	ln -f bashrc ~/.bashrc
-	ln -f tmux.conf ~/.tmux.conf
+dotfiles: $(DOTFILES) $(INITNVIM)
+
+$(HOME)/.%: $(PWD)/%
+	$(LINK) $< $@
+
+.PHONY: nvim
+nvim: $(INITNVIM)
+
+$(INITNVIM): $(NVIMDIR)
+	$(LINK) $(PWD)/$(NVIM) $@
 
 .PHONY: fonts
-	git clone https://github.com/ryanoasis/nerd-fonts ~/.customfonts
-	git clone https://github.com/powerline/fonts ~/.customfonts/
+fonts: | $(FONTSDIR)
+	$(CLONE) https://github.com/ryanoasis/nerd-fonts $(FONTSDIR)
+	$(CLONE) https://github.com/powerline/fonts $(FONTSDIR)
 	
-	~/.customfonts/fonts/install.sh
-	~/.customfonts/nerd-fonts/install.sh
+	$(FONTSDIR)/fonts/install.sh
+	$(FONTSDIR)/nerd-fonts/install.sh
 
 .PHONY: vundle
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-.PHONY: neovim
-	mkdir ~/.config/nvim
-	ln -f init.vim ~/.config/nvim/init.vim
-	
+vundle:
+	$(CLONE) https://github.com/VundleVim/Vundle.vim.git $(VIMDIR)/bundle/Vundle.vim
