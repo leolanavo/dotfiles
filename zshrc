@@ -96,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+export CLASSPATH=~/Programação/MAC323/algs4.jar:./class/:.
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -116,5 +117,9 @@ export LANG=en_US.UTF-8
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshrc="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias gitconfig="nvim ~/.gitconfig"
+alias inputrc="nvim ~/.inputrc"
+alias vimrc="nvim ~/.vimrc"
+alias nvimconfig="nvim ~/.config/nvim/init.vim"

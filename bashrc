@@ -106,7 +106,7 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export GDM_LANG="en_US.UTF-8"
 export GCC_COLORS=1
-export CLASSPATH=$CLASSPATH:~/Programação/MAC323/algs4.jar
+export CLASSPATH=~/Programação/MAC323/algs4.jar:./class/
 
 export PS1="\[$(tput bold)\]\[\033[38;5;196m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;33m\]\H\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;172m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] > \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;98m\]\A\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\n\\$ \[$(tput sgr0)\]"
 
