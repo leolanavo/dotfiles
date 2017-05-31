@@ -42,6 +42,8 @@ Plugin 'wesq3/vim-windowswap'
 Plugin 'mklabs/split-term.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Yggdroot/indentLine'
+Plugin 'luochen1990/rainbow'
 
 "---------------------
 "--- Code Checking ---
@@ -177,6 +179,25 @@ let g:tagbar_width = 30
 
 set splitbelow
 
+"===========================
+"=== Indent Line options ===
+"===========================
+
+let g:indentLine_enabled = 1
+let g:indentLine_setColors = 1
+let g:indentLine_color_term = 0
+let g:indentLine_char = '¦'
+
+"=======================
+"=== Rainbow options ===
+"=======================
+
+let g:rainbow_active = 1
+let g:raibow_conf = {
+        \   'ctermfgs': [28, 126, 33, 202],
+        \}
+
+
 "=========================
 "=== Vim-Wheel options ===
 "=========================
@@ -215,6 +236,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 7
+let g:syntastic_error_symbol = '☠'
+let g:syntastic_warning_symbol = '⚠'
 
 "=======================
 "=== Airline Options ===
