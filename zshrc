@@ -1,13 +1,52 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
+prompt_zsh_funnyIcon () {
+    state=`spotify-cli now-playing`
+    local color='%F{004}'
+    local bgcolor='%K{235}'
+    local symbol='\uf300'
+    if [ $state = "Spotify service not found - is it running?" ]; then
+        echo -n "%K{231}%F{235}\uE0B2%f%k$bgcolor$color $symbol %f%k"; 
+    else    
+        echo -n "%K{240}%F{235}\uE0B2%f%k$bgcolor$color $symbol %f%k"; 
+    fi
+}   
+
+prompt_zsh_user () {
+    local color='%F{016}'
+    local bgcolor='%K{160}'
+    echo -n "$color$bgcolor Lana %f%k%F{160}%K{055}\ue0b0%f%k"; 
+}
+
+prompt_zsh_host () {
+    local color='%F{255}'
+    local bgcolor='%K{055}'
+    host=`cat /etc/hostname` 
+    echo -n "$color$bgcolor $host %f%k%F{055}%K{004}\ue0b0%f%k"; 
+}
+
+prompt_zsh_Spotify () {
+    local color='%F{112}'
+    local bgcolor='%K{240}'
+    state=`spotify-cli now-playing`;
+    if [ $state = "Spotify service not found - is it running?" ]; then
+ 
+    else 
+      artist=`spotify-cli now-playing | grep "spotify_artist_name" | cut -d'=' -f2`
+      track=`spotify-cli now-playing | grep "spotify_track_name" | cut -d'=' -f2`
+      tLen=${#track}
+      short=${track:0:$tLen}
+      if [ "$tLen" -gt "30" ]; then
+      short=${track:0:30}"(...)\""
+      fi
+      echo -n "%K{231}%F{240}\uE0B2%f%k$bgcolor$color \uf1bc $artist - $short %f%k";
+
+    fi
+}
+
 export ZSH=~/.oh-my-zsh
 export TERM=xterm-256color
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#Theme
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -15,16 +54,18 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%K{red}%F{white} $ %f%k%F{red}%f "
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%K{004}%F{231} $ %f%k%F{004}\uE0B0%f "
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir battery vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time ram os_icon)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(zsh_user zsh_host dir battery vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time zsh_Spotify zsh_funnyIcon)
 
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='051'
 
 #Time
 POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M}"
-POWERLEVEL9K_TIME_FOREGROUND='red'
+POWERLEVEL9K_TIME_FOREGROUND='001'
+POWERLEVEL9K_TIME_BACKGROUND='231'
+
 
 #Status
 POWERLEVEL9K_STATUS_VERBOSE=false
@@ -40,84 +81,32 @@ POWERLEVEL9K_DIR_HOME_FOREGROUND='255'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='255'
 
 #Battery
-POWERLEVEL9K_BATTERY_LOW_FOREGROUND='red'
-POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='blue'
-POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='green'
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='grey'
+POWERLEVEL9K_BATTERY_LOW_FOREGROUND='white'
+POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='white'
+POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='016'
+POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='white'
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+POWERLEVEL9K_BATTERY_LOW_BACKGROUND='202'
+POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='202'
+POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='172'
+POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='202'
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='184'
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+#Plugins
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export CLASSPATH=~/Programação/MAC323/algs4.jar:./class/:.
+export PATH=$PATH:~/.opam/system/bin
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
+#Aliases
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias gitconfig="nvim ~/.gitconfig"
