@@ -23,8 +23,8 @@ $(FONTSDIR):
 .PHONY: dotfiles
 dotfiles: $(DOTFILES) $(INITNVIM) 
 
-$(DOTFILES): $(FILES)
-	ln -sf $(patsubst $(HOME)/.%, $(PWD)/%, $@) $@
+$(HOME)/.%: $(PWD)/%
+	$(LINK)
 
 .PHONY: zsh
 zsh:
