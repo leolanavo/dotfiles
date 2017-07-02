@@ -41,15 +41,15 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill 
 
 # change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
 bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+bindsym $mod+Left focus left
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
@@ -63,11 +63,16 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+g fullscreen global
 
 # lock screen
-bindsym $mod+l exec i3lock-extra -s -b -o /bin/240px-Archlinux-icon-crystal-64.svg.png
+bindsym $mod+l exec i3lock-extra -s -p -o ~/dotfiles/i3/lock.png
+
+# print screen
+bindsym Shift+Print exec maim -uoi root ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
+bindsym --release Print exec --no-startup-id maim -usko ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
+bindsym Ctrl+Shift+Print exec maim -uoi $(xdotool getactivewindow) ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
 
 # change container layout
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -84,9 +89,9 @@ set $ws1 "1 "
 set $ws2 "2 "
 set $ws3 "3 " 
 set $ws4 "4 " 
-set $ws5 "5 " 
-set $ws6 "6 " 
-set $ws7 "7" 
+set $ws5 "5 " 
+set $ws6 "6 " 
+set $ws7 "7 " 
 set $ws8 "8" 
 set $ws9 "9" 
 set $ws10 "10 " 
@@ -104,12 +109,12 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # navigate through workspaces
-bindsym Ctrl+$mod+Right workspace next
 bindsym Ctrl+$mod+Left workspace prev
+bindsym Ctrl+$mod+Right workspace next
 
 # move through workspaces
-bindsym Ctrl+Shift+Right move container workspace next
 bindsym Ctrl+Shift+Left move container workspace prev
+bindsym Ctrl+Shift+Right move container workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -124,14 +129,15 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # custom shortcuts for programs
-bindsym $mod+n exec google-chrome-stable
 bindsym $mod+m exec spotify
-bindsym $mod+t exec Telegram
 bindsym $mod+p exec nautilus
 bindsym $mod+k exec genymotion
+bindsym $mod+i exec discord
+bindsym $mod+o exec steam-runtime
+bindsym $mod+n exec google-chrome-stable
 
 # Script exection
-bindsym $mod+b exec /home/lana/toggletouchpad.sh
+bindsym $mod+b exec /home/lana/scripts/toggletouchpad.sh
 
 # fuck you, Spotify
 bindsym $mod+Shift+m exec pkill spotify
@@ -147,10 +153,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Startup options
 exec --no-startup-id nm-applet
-exec --no-startup-id synclient TapButton1=1
-exec --no-startup-id synclient MaxTapTime=100
-exec --no-startup-id synclient VertScrollDelta=75
-exec --no-startup-id synclient HorizScrollDelta=75
 
 # Fn bindings
 bindsym XF86AudioMute exec "amixer -q sset Master toggle"
@@ -188,7 +190,7 @@ bar {
 }
 
 # wallpaper
-set $wall = /home/lana/Pictures/Wallpaper-16.jpg
+set $wall = ~/dotfiles/i3/wallpaper.png
 exec_always --no-startup-id exec feh --bg-scale $wall
 
 # indication keys
