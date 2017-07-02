@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-export CLASSPATH=~/Programação/MAC323/algs4.jar:./class/:.
+export CLASSPATH=~/Programação/MAC323/algs4.jar:./class/:.:~/Documents/Bea/MAC0209/EP3/lib/osp.jar
 export PATH=$PATH:~/.opam/system/bin
 
 # Aliases
