@@ -37,13 +37,14 @@ Plugin 'danro/rename.vim'
 Plugin 'reedes/vim-wheel'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wesq3/vim-windowswap'
 Plugin 'mklabs/split-term.vim'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Yggdroot/indentLine'
-Plugin 'luochen1990/rainbow'
 
 "---------------------
 "--- Code Checking ---
@@ -95,6 +96,7 @@ map <silent> <F8> :NERDTreeToggle<CR>
 map <silent> <F9> :TagbarToggle<CR>
 map <silent> <C-g> :10Term<CR>
 map <C-s> :SyntasticToggleMode<CR>
+map <silent> <F2> :Autoformat<CR>
 
 "=========================
 "=== Interface Options ===
@@ -141,6 +143,11 @@ let g:terminal_color_13 = '#ad7fa8'
 let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
 
+
+"########################
+"### Plugin's Options ###
+"########################
+
 "======================
 "=== Syntax Options ===
 "======================
@@ -151,9 +158,9 @@ if has("syntax")
     au BufNewFile,BufRead *.jq set filetype=javascript
 endif
 
-"########################
-"### Plugin's Options ###
-"########################
+"==========================
+"=== Autoformat Options ===
+"==========================
 
 "========================
 "=== Deoplete options ===
