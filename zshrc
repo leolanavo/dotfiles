@@ -1,14 +1,11 @@
 prompt_zsh_funnyIcon () {
-    state=`spotify-cli now-playing`
     local color='%F{004}'
     local bgcolor='%K{235}'
     local symbol='\uf300'
     if [ ${mode} = 'minimal' ]; then
         echo -n "%K{016}%F{235}\uE0B2%f%k$bgcolor$color $symbol %f%k"; 
-    elif [ $state = "Spotify service not found - is it running?" ]; then
-        echo -n "%K{231}%F{235}\uE0B2%f%k$bgcolor$color $symbol %f%k"; 
     else    
-        echo -n "%K{240}%F{235}\uE0B2%f%k$bgcolor$color $symbol %f%k"; 
+        echo -n "%K{231}%F{235}\uE0B2%f%k$bgcolor$color $symbol %f%k"; 
     fi
 }   
 
@@ -23,24 +20,6 @@ prompt_zsh_host () {
     local bgcolor='%K{055}'
     host=`cat /etc/hostname` 
     echo -n "$color$bgcolor $host %f%k%F{055}%K{004}\ue0b0%f%k"; 
-}
-
-prompt_zsh_Spotify () {
-    local color='%F{112}'
-    local bgcolor='%K{240}'
-    state=`spotify-cli now-playing`;
-    if [ $state = "Spotify service not found - is it running?" ]; then
- 
-    else 
-      track=`spotify-cli now-playing | grep "spotify_track_name" | cut -d'=' -f2`
-      tLen=${#track}
-      short=${track:0:$tLen}
-      if [ "$tLen" -gt "30" ]; then
-      short=${track:0:30}"(...)\""
-      fi
-      echo -n "%K{231}%F{240}\uE0B2%f%k$bgcolor$color \uf1bc $short %f%k";
-
-    fi
 }
 
 # Path to your oh-my-zsh installation.
@@ -105,7 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export CLASSPATH=~/Programação/MAC323/algs4.jar:./obj/:.:~/Documents/Bea/MAC0209/EP3/lib/osp.jar
-export PATH=$PATH:~/.opam/system/bin
 
 # Aliases
 alias zshrc="nvim ~/.zshrc"
@@ -165,7 +143,7 @@ mode () {
 
 normal() {
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(zsh_user zsh_host dir vcs battery)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time zsh_Spotify zsh_funnyIcon)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time zsh_funnyIcon)
 }
 
 normal_minimal() {
@@ -175,7 +153,7 @@ normal_minimal() {
 
 testing() {
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(zsh_user zsh_host ram swap command_execution_time dir vcs)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery zsh_Spotify zsh_funnyIcon)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery zsh_funnyIcon)
 }
 
 testing_minimal() {
@@ -198,18 +176,3 @@ init() {
 }
 
 init
-
-get_prompt () {
-    lprompt=`echo $POWERLEVEL9K_LEFT_PROMPT_ELEMENTS`
-    rprompt=`echo $POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS`
-    
-    prompt=`echo $POWERLEVEL9K_LEFT_PROMPT_ELEMENTS | grep $1`
-    if [ $? = 0 ]; then
-        echo "hello"
-    fi
-
-    prompt=`echo $POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS | grep $1`
-    if [ $? = 0 ]; then
-        echo "efia a porra da cor no cu"
-    fi
-}
