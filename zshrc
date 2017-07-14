@@ -96,6 +96,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='184'
 ###############
 ### Plugins ###
 ###############
+
 plugins=(git)
 
 ##############
@@ -184,9 +185,9 @@ init() {
 
 }
 
-###############
-## PROFILES ###
-###############
+################
+### PROFILES ###
+################
 normal () {
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(zsh_user zsh_host dir vcs battery)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time zsh_funnyIcon)
