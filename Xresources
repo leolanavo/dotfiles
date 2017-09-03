@@ -1,0 +1,45 @@
+#define black #000000
+#define lblack #363031
+#define red #ab1d1b
+#define lred #e24846
+#define pippo #1bab1d
+#define lgreen #46e248
+#define yellow #a9ab1b
+#define lyellow #dfe142
+#define blue #1d1bab
+#define lblue #4442e1
+#define magenta #ab1ba9
+#define lmagenta #e246e0
+#define cyan #1ba9ab
+#define lcyan #46e0e2
+#define white #ccd2d0
+#define lwhite #f4f5f5
+
+*color0: black
+*color1: red
+*color2: green
+*color3: yellow
+*color4: blue
+*color5: magenta
+*color6: cyan
+*color7: white
+
+*color8: lblack
+*color9: lred
+*color10: lgreen
+*color11: lyellow
+*color12: lblue
+*color13: lmagenta
+*color14: lcyan
+*color15: lwhite
+
+rofi.padding:           200
+rofi.font:              Roboto Mono Bold 11.5
+rofi.color-normal:      argb: AA000000, lred, argb: AA000000, red, #ffffff
+rofi.color-window:      argb: AA000000, argb: AA000000
+rofi.bw:                3
+rofi.terminal:          bash
+rofi.separator-style:   solid
+rofi.hide-scrollbar:    true
+rofi.lines:             20
+rofi.fake-transparency: false
