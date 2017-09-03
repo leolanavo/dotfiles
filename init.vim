@@ -2,4 +2,4 @@ set runtimepath+=~/.vim,~/.vim/after
 set packpath+=~/.vim
 source ~/.vimrc
 
-set guicursor=a:block-blinkwait700-blinkoff400-blinkon250,n:block-blinkon0
+set guicursor=a:block-blinkwait700-blinkoff400-blinkon250
