@@ -33,10 +33,9 @@
 *color14: lcyan
 *color15: lwhite
 
-rofi.padding:           200
 rofi.font:              Roboto Mono Bold 11.5
-rofi.color-normal:      argb: AA000000, lred, argb: AA000000, red, #ffffff
-rofi.color-window:      argb: AA000000, argb: AA000000
+rofi.color-normal:      #000000, lred, #000000, red, #ffffff
+rofi.color-window:      #000000, #ffffff
 rofi.bw:                3
 rofi.terminal:          bash
 rofi.separator-style:   solid
