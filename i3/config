@@ -1,102 +1,122 @@
-# colors
+##########################################
+# i3-gaps configuration, using py3status #
+# by Leonardo Lana                       #
+##########################################
+
+#########################
+### i3's core options ###
+#########################
+
+### Colors' aliases ###
 set $back               #1d1F21
 set $black              #282A2E
 set $grey               #373B41
-set $lightgrey          #707880
+set $lightgrey          #999999
 set $white              #C5C8C6
 set $yellow             #F0C674
 set $red                #B30000
 set $green              #B5BD56
 set $orange             #BE6129 
 
-# Border's color
+### Border's coloring ###
 #class                  border      backgr.     text        split
-client.focused          $red        $red        $white      $red
+client.focused          $red       $white       $red      $white
 client.focused_inactive $grey       $grey       $lightgrey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey
 client.urgent           $red        $red        $black      $red
 client.background       $back
 
-# thin line to indicate the focused window
-for_window [class="^.*"] border pixel 2
+### Focused container indication ###
+for_window [class="^.*"] border pixel 3
 
-# gaps
+### Gaps options ###
 smart_gaps on
-gaps inner 5 
+gaps inner 10 
 gaps outer 0
 
-# set $mod = ALT
-set $mod Mod1
+### Mod key ###
+# Mod1 = ALT
+set $mod Mod1 
 
-# set the font
+### Font options ###
 font pango:monospace 10
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+###################################
+### Navigation among containers ###
+###################################
 
-# start a terminal
-bindsym $mod+Return exec gnome-terminal
-
-# kill focused window
-bindsym $mod+Shift+q kill 
-
-# change focus
 bindsym $mod+Up focus up
 bindsym $mod+Down focus down
 bindsym $mod+Left focus left
 bindsym $mod+Right focus right
+bindsym $mod+a focus parent
 
-# move focused window
+#################################
+### Movement among containers ###
+#################################
+
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
+floating_modifier $mod
 
-# split in horizontal orientation
-bindsym $mod+h split h
+############################
+### Print screen options ###
+############################
 
-# split in vertical orientation
+#DISCLAIMER: if the folder "~/Imagens/Screenshots/" doens't exist
+#            the commands won't work.
+
+set $format ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
+
+### Whole screen ###
+bindsym Shift+Print exec maim -uoi root $format
+
+### Focused container ###
+bindsym Ctrl+Shift+Print exec maim -uoi $(xdotool getactivewindow) $format
+
+### Selected area ###
+bindsym Print exec maim -usko $format
+
+###########################
+### Containers' display ###
+###########################
+
+### Orientation ###
+bindsym $mod+h split h 
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+### Fullscreen ###
 bindsym $mod+f fullscreen toggle
 bindsym $mod+g fullscreen global
 
-# lock screen
-bindsym $mod+l exec i3lock-extra -s -p -o ~/dotfiles/i3/lock.png
-
-# print screen
-bindsym Shift+Print exec maim -uoi root ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
-bindsym --release Print exec --no-startup-id maim -usko ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
-bindsym Ctrl+Shift+Print exec maim -uoi $(xdotool getactivewindow) ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
-
-# change container layout
+### Layout ###
 bindsym $mod+w layout tabbed
 bindsym $mod+s layout stacking
 bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+##################
+### Workspaces ###
+##################
 
-# focus the parent container
-bindsym $mod+a focus parent
+### Names ###
+set $ws1 "1:   code" 
+set $ws2 "2:   web"
+set $ws3 "3:   shell" 
+set $ws4 "4:   music" 
+set $ws5 "5:   mail" 
+set $ws6 "6:   files" 
+set $ws7 "7:   android" 
+set $ws8 "8:   steam" 
+set $ws9 "9:   gaming" 
+set $ws10 "10:   Monitor" 
 
-# set the name of the workspaces
-set $ws1 "1 " 
-set $ws2 "2 "
-set $ws3 "3 " 
-set $ws4 "4 " 
-set $ws5 "5 " 
-set $ws6 "6 " 
-set $ws7 "7 " 
-set $ws8 "8" 
-set $ws9 "9" 
-set $ws10 "10 " 
+### Navigation ###
+bindsym Ctrl+$mod+Left workspace prev
+bindsym Ctrl+$mod+Right workspace next
 
-# switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -108,15 +128,10 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# navigate through workspaces
-bindsym Ctrl+$mod+Left workspace prev
-bindsym Ctrl+$mod+Right workspace next
-
-# move through workspaces
+### Containers' movement ###
 bindsym Ctrl+Shift+Left move container workspace prev
 bindsym Ctrl+Shift+Right move container workspace next
 
-# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -128,43 +143,71 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# custom shortcuts for programs
+###################
+### Aplications ###
+###################
+
+### Closing ###
+bindsym $mod+Shift+q kill 
+bindsym $mod+Shift+m exec pkill spotify
+
+### Opening ###
+bindsym $mod+i exec discord
 bindsym $mod+m exec spotify
 bindsym $mod+p exec nautilus
 bindsym $mod+k exec genymotion
-bindsym $mod+i exec discord
 bindsym $mod+o exec steam-runtime
+bindsym $mod+Return exec gnome-terminal
 bindsym $mod+n exec google-chrome-stable
+bindsym $mod+Shift+Return exec rofi -show run
 
-# Script exection
-bindsym $mod+b exec /home/lana/scripts/toggletouchpad.sh
+### Scripts ###
+set $scriptsdir /home/lana/scripts
+bindsym $mod+b exec $scriptsdir/toggletouchpad
+bindsym $mod+space exec $scriptsdir/chlang
 
-# fuck you, Spotify
-bindsym $mod+Shift+m exec pkill spotify
+#####################
+### i3's commands ###
+#####################
 
-# reload the configuration file
+### Reload the configuration file ###
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+### Restart i3 inplace ###
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
+### exit i3 ###
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Startup options
-exec --no-startup-id nm-applet
+#######################
+### Startup options ###
+#######################
 
-# Fn bindings
+exec --no-startup-id "xrdb -load ~/.Xresources"
+exec --no-startup-id "compton --config ~/dotfiles/compton.conf -b"
+
+###################
+### Fn bindings ###
+###################
+
+### Volume ###
 bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master 10%-"
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 10%+"
+
+### Media ###
 bindsym XF86AudioNext exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
 bindsym XF86AudioPlay exec "playerctl play-pause"
+
+### Screen Brightness ###
 bindsym XF86MonBrightnessDown exec "light -U 10"
 bindsym XF86MonBrightnessUp exec "light -A 10"
 
-# resize window (you can also use the mouse for that)
+#########################
+### Resize containers ###
+#########################
+
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -177,24 +220,28 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# bar customization
-bar {
-    font pango: monospace 10 
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        position bottom
-            colors {
-                background #000000
-                statusline #848484
-                separator #93a1a1
-            }
-}
+###################
+### Bar options ###
+###################
 
-# wallpaper
-set $wall = ~/dotfiles/i3/wallpaper.png
+exec ~/dotfiles/lemonbar/call_bar.sh
+
+#################
+### Wallpaper ###
+#################
+
+set $wall = ~/dotfiles/i3/wallpaper
 exec_always --no-startup-id exec feh --bg-scale $wall
 
-# indication keys
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
+###################
+### Lock screen ###
+###################
+
+set $lock ~/dotfiles/i3/lock
+bindsym $mod+l exec i3lock-extra -s -p -o $lock 
+
+#############
+### Modes ###
+#############
 
 bindsym $mod+r mode "resize"
