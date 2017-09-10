@@ -102,16 +102,16 @@ bindsym $mod+Shift+space floating toggle
 ##################
 
 ### Names ###
-set $ws1 "1:   code" 
-set $ws2 "2:   web"
-set $ws3 "3:   shell" 
-set $ws4 "4:   music" 
-set $ws5 "5:   mail" 
-set $ws6 "6:   files" 
-set $ws7 "7:   android" 
-set $ws8 "8:   steam" 
-set $ws9 "9:   gaming" 
-set $ws10 "10:   Monitor" 
+set $ws1 "1" 
+set $ws2 "2"
+set $ws3 "3" 
+set $ws4 "4" 
+set $ws5 "5" 
+set $ws6 "6" 
+set $ws7 "7" 
+set $ws8 "8" 
+set $ws9 "9" 
+set $ws10 "10" 
 
 ### Navigation ###
 bindsym Ctrl+$mod+Left workspace prev
@@ -224,7 +224,7 @@ mode "resize" {
 ### Bar options ###
 ###################
 
-exec ~/dotfiles/lemonbar/call_bar.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
 
 #################
 ### Wallpaper ###
