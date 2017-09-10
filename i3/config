@@ -1,5 +1,5 @@
 ##########################################
-# i3-gaps configuration, using py3status #
+# i3-gaps configuration, using polybar   #
 # by Leonardo Lana                       #
 ##########################################
 
@@ -224,7 +224,7 @@ mode "resize" {
 ### Bar options ###
 ###################
 
-exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id $HOME/dotfiles/polybar/launch_polybar.sh
 
 #################
 ### Wallpaper ###
