@@ -66,5 +66,5 @@ alias inputrc="nvim ~/.inputrc"
 alias vimrc="nvim ~/.vimrc"
 alias nvimrc="nvim ~/.config/nvim/init.vim"
 alias i3rc="nvim ~/.config/i3/config"
-alias polybarc="nvim ~/.config/polybar/config"
+alias polybarrc="nvim ~/.config/polybar/config"
 
