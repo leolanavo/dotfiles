@@ -1,0 +1,150 @@
+;======================================
+;=============== Colors ===============
+;======================================
+
+[colors]
+black = #000000
+red = #ab1d1b
+white = #f4f5f5
+magenta = #ab1ba9
+
+;=============================================
+;=============== Top Bar Setup ===============
+;=============================================
+
+[bar/top]
+monitor = ${env:MONITOR}
+bottom = false
+
+width = 100%
+height = 28
+line-size = 2
+
+font-0 = "RobotoMono Nerd Font:size=11"
+
+label-active-font = 0
+
+spacing = 1
+padding-right = 1
+
+;=======================================
+;=============== Modules ===============
+;=======================================
+
+modules-left = i3
+modules-center = date
+modules-right = battery
+
+;===========================================
+;=============== Date Module ===============
+;===========================================
+
+[module/date]
+type = internal/date
+interval = 1.0
+
+date = %d/%m/%Y
+time = %H:%M
+
+date-alt = %a, %d %B %Y
+time-alt = %H:%M:%S
+
+label = %date% %time%
+
+;========================================
+;=============== i3 Module ==============
+;========================================
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = false
+
+strip-wsnumbers = true
+index-sort = true
+
+enable-click = true
+enable-scroll = true
+wrapping-scroll = true
+reverse-scroll = false
+
+;=============== WS Icons ===============
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+;=============== WS Formatting ===============
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+
+;--------------- Focused ---------------
+label-focused = %icon%
+label-focused-foreground = ${colors.white}
+label-focused-background = ${colors.red}
+label-focused-underline = ${colors.white}
+label-focused-padding = 1
+
+;--------------- Unfocused ---------------
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.white}
+label-unfocused-background = ${colors.black}
+label-unfocused-padding = 1
+
+;--------------- Visible ---------------
+label-visible = %icon%
+label-visible-foreground = ${colors.white}
+label-visible-background = ${colors.black}
+label-visible-padding = 1
+
+;--------------- Urgent ---------------
+label-urgent = %icon%
+label-urgent-foreground = ${colors.white}
+label-urgent-background = ${colors.magenta}
+label-urgent-padding = 1
+
+[module/battery]
+type = internal/battery
+full-at = 99
+
+battery = BAT0
+adapter = AC
+
+time-format = %H:%M
+
+format-charging = <animation-charging><label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+format-full = <ramp-capacity><label-full>
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
