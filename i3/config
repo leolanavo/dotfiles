@@ -4,7 +4,7 @@
 ##########################################
 
 #########################
-### i3's core options ###
+### i3s core options ###
 #########################
 
 ### Colors' aliases ###
@@ -65,10 +65,10 @@ floating_modifier $mod
 ### Print screen options ###
 ############################
 
-#DISCLAIMER: if the folder "~/Imagens/Screenshots/" doens't exist
+#DISCLAIMER: if the folder "$homedir/Imagens/Screenshots/" doens't exist
 #            the commands won't work.
 
-set $format ~/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
+set $format $HOME/Imagens/$(date +%d:%m:%Y-%H:%M:%S).png
 
 ### Whole screen ###
 bindsym Shift+Print exec maim -uoi root $format
@@ -162,9 +162,10 @@ bindsym $mod+n exec google-chrome-stable
 bindsym $mod+Shift+Return exec rofi -show run
 
 ### Scripts ###
-set $scriptsdir /home/lana/scripts
-bindsym $mod+b exec $scriptsdir/toggletouchpad
-bindsym $mod+space exec $scriptsdir/chlang
+set $scriptdir $HOME/scripts
+
+bindsym $mod+b exec $scriptdir/toggletouchpad
+bindsym $mod+space exec $scriptdir/chlang
 
 #####################
 ### i3's commands ###
@@ -183,8 +184,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ### Startup options ###
 #######################
 
-exec --no-startup-id "xrdb -load ~/.Xresources"
-exec --no-startup-id "compton --config ~/dotfiles/compton.conf -b"
+exec --no-startup-id "nm-applet"
+exec --no-startup-id "xrdb -load $HOME/.Xresources"
+exec --no-startup-id "compton --config $HOME/dotfiles/compton.conf -b"
 
 ###################
 ### Fn bindings ###
@@ -230,14 +232,14 @@ exec_always --no-startup-id $HOME/dotfiles/polybar/launch_polybar.sh
 ### Wallpaper ###
 #################
 
-set $wall = ~/dotfiles/i3/wallpaper
+set $wall $HOME/dotfiles/i3/wallpaper
 exec_always --no-startup-id exec feh --bg-scale $wall
 
 ###################
 ### Lock screen ###
 ###################
 
-set $lock ~/dotfiles/i3/lock
+set $lock $HOME/dotfiles/i3/lock
 bindsym $mod+l exec i3lock-extra -s -p -o $lock 
 
 #############
