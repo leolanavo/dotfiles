@@ -115,7 +115,10 @@ let g:tex_conceal=0
 "=== Coloring Options ===
 "========================
 
-set termguicolors
+if has("nvim")
+    set termguicolors
+endif
+
 set t_Co=256 "Enable the terminal to recognize 256 colors
 set background=dark
 
@@ -135,7 +138,6 @@ let g:terminal_color_12 = '#729fcf'
 let g:terminal_color_13 = '#ad7fa8'
 let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
-
 
 "########################
 "### Plugin's Options ###
