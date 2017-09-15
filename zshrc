@@ -59,12 +59,11 @@ source $ZSH/oh-my-zsh.sh
 ### Aliases ###
 ###############
 
-alias zshrc="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias gitconfig="nvim ~/.gitconfig"
-alias inputrc="nvim ~/.inputrc"
-alias vimrc="nvim ~/.vimrc"
-alias nvimrc="nvim ~/.config/nvim/init.vim"
-alias i3rc="nvim ~/.config/i3/config"
-alias polybarrc="nvim ~/.config/polybar/config"
-
+alias zshrc="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias gitconfig="vim ~/.gitconfig"
+alias inputrc="vim ~/.inputrc"
+alias vimrc="vim ~/.vimrc"
+alias nvimrc="vim ~/.config/nvim/init.vim"
+alias i3rc="vim ~/.config/i3/config"
+alias polybarrc="vim ~/.config/polybar/config"
