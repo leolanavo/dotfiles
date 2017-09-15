@@ -35,10 +35,10 @@
 
 rofi.font:              Roboto Mono Bold 11.5
 rofi.color-normal:      #000000, lred, #000000, red, #ffffff
-rofi.color-window:      #000000, #ffffff
+rofi.color-window:      #000000, #000000
 rofi.bw:                3
 rofi.terminal:          bash
 rofi.separator-style:   solid
 rofi.hide-scrollbar:    true
-rofi.lines:             20
+rofi.lines:             10
 rofi.fake-transparency: false
