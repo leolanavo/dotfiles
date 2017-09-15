@@ -1,21 +1,16 @@
 #!/bin/bash
 
 dotfiles=(Xresources bashrc zshrc compton.conf gitconfig inputrc vimrc)
-nvimfile=init.vim
+directories=(i3 nvim polybar)
 
-configdir=$HOME/.config/
-curdir=$(pwd)
+CONFIG=$HOME/.config/
+CURDIR=$(pwd)
 
 for i in ${dotfiles[@]}; do
-    ln -sf $curdir/$i $HOME/.$i
+    ln -svf $CURDIR/$i $HOME/.$i
 done
 
-# nvim linking
-ln -sf $curdir/$nvimfile $configdir/nvim/$nvimfile
-
-# i3 linking
-ln -sf $curdir/i3/config $configdir/i3/config
-
-# polybar linking
-ln -sf $curdir/polybar/config $configdir/polybar/config
-
+for i in ${directories[@]}; do
+	rm -rf $CONFIG/$i
+    ln -svf $CURDIR/$i $CONFIG/
+done
