@@ -27,6 +27,7 @@ tray-position = right
 
 spacing = 1
 padding-right = 1
+module-margin = 1
 
 ;=======================================
 ;=============== Modules ===============
@@ -34,7 +35,7 @@ padding-right = 1
 
 modules-left = i3
 modules-center = date
-modules-right = mpd volume battery
+modules-right = volume gmail battery
 
 ;===========================================
 ;=============== Date Module ===============
@@ -114,6 +115,7 @@ label-visible-padding = 1
 label-urgent = %icon%
 label-urgent-foreground = ${colors.white}
 label-urgent-background = ${colors.magenta}
+label-urgent-underline = ${colors.white}
 label-urgent-padding = 1
 
 ;==============================================
@@ -175,9 +177,6 @@ bar-volume-indicator = |
 bar-volume-fill =  
 bar-volume-empty = 
 
-format-volume-padding = 2
-format-muted-padding = ${self.format-volume-padding}
-
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -192,3 +191,12 @@ ramp-headphones-1 = 
 ;===============================================
 ;=============== Keyboard Module ===============
 ;===============================================
+
+;============================================
+;=============== Gmail Module ===============
+;============================================
+[module/gmail]
+type = custom/script
+exec = ~/.config/polybar/gmail/launch.py
+tail = true
+click-left = ~/.config/polybar/gmail/open.sh 
