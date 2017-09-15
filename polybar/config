@@ -45,7 +45,7 @@ modules-right = volume gmail battery
 type = internal/date
 interval = 1.0
 
-date =  %d/%m/%Y
+date =  %d/%m
 time =  %H:%M
 
 date-alt = %a, %d %B %Y
@@ -58,6 +58,8 @@ label = %date% %time%
 ;========================================
 
 [module/i3]
+
+;--------------- Core ---------------
 type = internal/i3
 
 pin-workspaces = false
@@ -195,8 +197,13 @@ ramp-headphones-1 = 
 ;============================================
 ;=============== Gmail Module ===============
 ;============================================
+
 [module/gmail]
+
+;--------------- Core ---------------
 type = custom/script
 exec = ~/.config/polybar/gmail/launch.py
 tail = true
+
+;--------------- Opening Script ---------------
 click-left = ~/.config/polybar/gmail/open.sh 
