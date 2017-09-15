@@ -68,7 +68,7 @@ floating_modifier $mod
 #DISCLAIMER: if the folder "$homedir/Imagens/Screenshots/" doens't exist
 #            the commands won't work.
 
-set $format $HOME/Imagens/$(date +%d:%m:%Y-%H:%M:%S).png
+set $format $HOME/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
 
 ### Whole screen ###
 bindsym Shift+Print exec maim -uoi root $format
