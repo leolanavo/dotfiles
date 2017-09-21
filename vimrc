@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
 "--- Utility ---
 "---------------
 
+Plug 'mattn/emmet-vim'
 Plug 'danro/rename.vim'
 Plug 'reedes/vim-wheel'
 Plug 'majutsushi/tagbar'
@@ -31,12 +32,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
-Plug 'wesq3/vim-windowswap'
+Plug 'wesQ3/vim-windowswap'
 Plug 'mklabs/split-term.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 "---------------------
 "--- Code Checking ---
@@ -60,6 +60,12 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'jakedouglas/exuberant-ctags'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline-themes'
+
+"-------------
+"--- Latex ---
+"-------------
+
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 "---------------------
 "--- Auto Complete ---
@@ -96,6 +102,8 @@ map <silent> <F8> :NERDTreeToggle<CR>
 set number
 set mouse=a
 set cursorline
+set splitbelow
+set splitright
 
 "==========================
 "=== Identation Options ===
@@ -216,15 +224,6 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-"===========================
-"=== Window Swap options ===
-"===========================
-
-let g:windowswap_map_keys = 0 "prevent default bindings
-nnoremap <silent> <F5> :call WindowSwap#MarkWindowSwap()<CR>
-nnoremap <silent> <F6> :call WindowSwap#DoWindowSwap()<CR>
-nnoremap <silent> <F7> :call WindowSwap#EasyWindowSwap()<CR>
 
 "=========================
 "=== Syntastic options ===
