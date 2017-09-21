@@ -3,10 +3,11 @@
 ;======================================
 
 [colors]
-black = #000000
-red = #ab1d1b
-white = #f4f5f5
-magenta = #ab1ba9
+background = #000000
+foreground = #f4f5f5
+
+foreground-alt = #ab1d1b
+urgent = #ab1ba9
 
 ;=============================================
 ;=============== Top Bar Setup ===============
@@ -20,7 +21,8 @@ width = 100%
 height = 28
 line-size = 2
 
-font-0 = "RobotoMono Nerd Font:size=11"
+font-0 = RobotoMono Nerd Font:size=11
+font-1 = Hack:fontformat=truetype:size=9;1
 
 label-active-font = 0
 tray-position = right
@@ -35,7 +37,7 @@ module-margin = 1
 
 modules-left = i3
 modules-center = date
-modules-right = volume gmail battery
+modules-right = backlight volume gmail battery
 
 ;===========================================
 ;=============== Date Module ===============
@@ -52,6 +54,7 @@ date-alt = %a, %d %B %Y
 time-alt = %H:%M:%S
 
 label = %date% %time%
+label-underline = ${colors.foreground-alt}
 
 ;========================================
 ;=============== i3 Module ==============
@@ -78,7 +81,7 @@ ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
-ws-icon-4 = 5;
+ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
@@ -87,37 +90,37 @@ ws-icon-9 = 10;
 
 ;=============== WS Formatting ===============
 
-;--------------- Formats --------------- 
+;--------------- Formats ---------------
 format = <label-state> <label-mode>
 
-;--------------- Labels --------------- 
+;--------------- Labels ---------------
 label-mode = %mode%
 label-mode-padding = 2
 
 ;--------------- Focused ---------------
 label-focused = %icon%
-label-focused-foreground = ${colors.white}
-label-focused-background = ${colors.red}
-label-focused-underline = ${colors.white}
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.foreground-alt}
+label-focused-underline = ${colors.foreground}
 label-focused-padding = 1
 
 ;--------------- Unfocused ---------------
 label-unfocused = %icon%
-label-unfocused-foreground = ${colors.white}
-label-unfocused-background = ${colors.black}
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.background}
 label-unfocused-padding = 1
 
 ;--------------- Visible ---------------
 label-visible = %icon%
-label-visible-foreground = ${colors.white}
-label-visible-background = ${colors.black}
+label-visible-foreground = ${colors.foreground}
+label-visible-background = ${colors.background}
 label-visible-padding = 1
 
 ;--------------- Urgent ---------------
 label-urgent = %icon%
-label-urgent-foreground = ${colors.white}
-label-urgent-background = ${colors.magenta}
-label-urgent-underline = ${colors.white}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.urgent}
+label-urgent-underline = ${colors.foreground}
 label-urgent-padding = 1
 
 ;==============================================
@@ -126,39 +129,43 @@ label-urgent-padding = 1
 
 [module/battery]
 
-;--------------- Core --------------- 
+;--------------- Core ---------------
 type = internal/battery
 battery = BAT0
 adapter = AC
 
-;--------------- Formats --------------- 
+;--------------- Formats ---------------
 format-charging = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 format-full = <ramp-capacity><label-full>
 
-;--------------- Labels --------------- 
+format-full-underline = ${colors.foreground-alt}
+format-charging-underline = ${colors.foreground-alt}
+format-discharging-underline = ${colors.foreground-alt}
+
+;--------------- Labels ---------------
 label-charging = %percentage%%
 label-discharging = ${self.label-charging}
 label-full = ${self.label-charging}
 
-;--------------- Icons --------------- 
+;--------------- Icons ---------------
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-;--------------- Bar Width --------------- 
+;--------------- Bar Width ---------------
 bar-capacity-width = 10
 
-;--------------- Charging Icons --------------- 
+;--------------- Charging Icons ---------------
 animation-charging-0 = ${self.ramp-capacity-0}
 animation-charging-1 = ${self.ramp-capacity-1}
 animation-charging-2 = ${self.ramp-capacity-2}
 animation-charging-3 = ${self.ramp-capacity-3}
 animation-charging-4 = ${self.ramp-capacity-4}
 
-;--------------- Framerate --------------- 
+;--------------- Framerate ---------------
 animation-charging-framerate = 750
 
 ;=============================================
@@ -166,25 +173,42 @@ animation-charging-framerate = 750
 ;=============================================
 
 [module/volume]
+
+;--------------- Core ---------------
 type = internal/volume
 
-mapped = true
+;--------------- Labels ---------------
+label-volume-foreground = ${colors.foreground}
+label-muted =  ──────────
+label-muted-underline = ${colors.foreground-alt}
 
-label-muted =   %percentage%%
-label-volume = %percentage%%
+;--------------- Formats ---------------
+format-muted-foreground = ${colors.foreground}
+format-volume = <ramp-volume> <bar-volume>
+format-volume-underline = ${colors.foreground-alt}
 
-format-volume = <ramp-volume> <label-volume> <bar-volume>
+;--------------- Bar Fonts ---------------
+bar-volume-fill-font = 1
+bar-volume-empty-font = 1
+bar-volume-indicator-font = 1
+
+;--------------- Bar Settings ---------------
 bar-volume-width = 10
-bar-volume-indicator = |
-bar-volume-fill =  
-bar-volume-empty = 
+bar-volume-gradient = false
 
+;--------------- Bar Colors ---------------
+bar-volume-indicator-foreground = ${colors.foreground}
+bar-volume-empty-foreground = ${colors.foreground}
+
+;--------------- Bar Icons ---------------
+bar-volume-fill = ─
+bar-volume-empty = ─
+bar-volume-indicator = |
+
+;--------------- Volume icons ---------------
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-
-ramp-headphones-0 = 
-ramp-headphones-1 = 
 
 ;================================================
 ;=============== Backlight Module ===============
@@ -193,6 +217,40 @@ ramp-headphones-1 = 
 ;===============================================
 ;=============== Keyboard Module ===============
 ;===============================================
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
+
+; Create scroll handlers used to set the backlight value
+; Default: true
+enable-scroll = false
+
+format = <label> <bar>
+format-underline = ${colors.foreground-alt}
+
+label =  
+
+format-font = 2
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+;--------------- Bar Fonts ---------------
+bar-fill-font = 1
+bar-empty-font = 1
+bar-indicator-font = 1
+
+bar-width = 10
+bar-fill = ─
+bar-empty = ─
+bar-indicator = |
 
 ;============================================
 ;=============== Gmail Module ===============
@@ -205,5 +263,7 @@ type = custom/script
 exec = ~/.config/polybar/gmail/launch.py
 tail = true
 
+format-underline = ${colors.foreground-alt}
+
 ;--------------- Opening Script ---------------
-click-left = ~/.config/polybar/gmail/open.sh 
+click-left = ~/.config/polybar/gmail/open.sh
