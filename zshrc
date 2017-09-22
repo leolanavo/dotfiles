@@ -67,3 +67,5 @@ alias vimrc="vim ~/.vimrc"
 alias nvimrc="vim ~/.config/nvim/init.vim"
 alias i3rc="vim ~/.config/i3/config"
 alias polybarrc="vim ~/.config/polybar/config"
+
+alias ycm_gen="~/.vim/plugged/YCM-Generator/config_gen.py $(pwd)"
