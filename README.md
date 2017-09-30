@@ -1,5 +1,4 @@
 # DOTFILES
-==========
 
 This is my collection of configuration files, it contains configuration for
 neovim, zshell, i3, polybar, gnome-terminal, rofi, git, compton, bash.
@@ -15,7 +14,6 @@ neovim, zshell, i3, polybar, gnome-terminal, rofi, git, compton, bash.
 | gnome-terminal | gnome-terminal-transparency     |
 
 ## TODO
--------
 
 ..* Migrate from gnome-terminal to urxvt
 ..* Add ranger configuration
