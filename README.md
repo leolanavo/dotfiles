@@ -15,7 +15,7 @@ neovim, zshell, i3, polybar, gnome-terminal, rofi, git, compton, bash.
 
 ## TODO
 
-..* Migrate from gnome-terminal to urxvt
-..* Add ranger configuration
-..* Clean polybar configuration
-..* Fix neoinclude (neovim plugin) path
+* Migrate from gnome-terminal to urxvt
+* Add ranger configuration
+* Clean polybar configuration
+* Fix neoinclude (neovim plugin) path
