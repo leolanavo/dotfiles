@@ -28,6 +28,7 @@ Plug 'mattn/emmet-vim'
 Plug 'danro/rename.vim'
 Plug 'reedes/vim-wheel'
 Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
@@ -37,6 +38,11 @@ Plug 'mklabs/split-term.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'ntpeters/vim-better-whitespace'
+
+Plug 'haya14busa/incsearch.vim'
+Plug 'dkprice/vim-easygrep'
+Plug 'jceb/vim-orgmode'
 
 "---------------------
 "--- Code Checking ---
@@ -56,7 +62,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'bling/vim-airline'
 Plug 'sheerun/vim-polyglot'
-Plug 'ryanoasis/vim-devicons' 
+Plug 'ryanoasis/vim-devicons'
 Plug 'jakedouglas/exuberant-ctags'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline-themes'
@@ -70,13 +76,8 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 "---------------------
 "--- Auto Complete ---
 "---------------------
-
-Plug 'zchee/deoplete-clang'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neoinclude.vim'
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'poppyschmo/deoplete-latex'
+Plug 'valloric/youcompleteme', { 'do': './install.py --all' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -94,6 +95,8 @@ map <silent> <F2> :Autoformat<CR>
 map <C-s> :SyntasticToggleMode<CR>
 map <silent> <F9> :TagbarToggle<CR>
 map <silent> <F8> :NERDTreeToggle<CR>
+map <silent> mv :vertical resize 83<CR>
+map <silent> mh :resize 23<CR>
 
 "=========================
 "=== Interface Options ===
@@ -104,6 +107,7 @@ set mouse=a
 set cursorline
 set splitbelow
 set splitright
+let g:tex_conceal=0
 
 "==========================
 "=== Identation Options ===
@@ -112,13 +116,17 @@ set splitright
 set wrap
 set linebreak
 set expandtab
+
+au BufNewFile,BufRead *.rkt,*.html set tabstop=2
+au BufNewFile,BufRead *.rkt,*.html set softtabstop=2
+au BufNewFile,BufRead *.rkt,*.html set shiftwidth=2
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set textwidth=80
 set autoindent
 
-let g:tex_conceal=0
 "========================
 "=== Coloring Options ===
 "========================
@@ -161,21 +169,13 @@ if has("syntax")
     au BufNewFile,BufRead *.jq set filetype=javascript
 endif
 
-"========================
-"=== Deoplete options ===
-"========================
+"=============================
+"=== YouCompleteMe Options ===
+"=============================
 
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_confirm_extra_conf = 0
 set completeopt-=preview
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#max_list = 10
-
-let g:deoplete#sources#clang#libclang_path = '/lib/llvm/build/lib/libclang.so' 
-let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
-
-autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
-let g:JavaComplete_LibsPath = '~/Programação/MAC323/algs4.jar'
 
 "=======================
 "=== Tagbar options  ===
@@ -198,6 +198,12 @@ let g:indentLine_enabled = 1
 let g:indentLine_setColors = 1
 let g:indentLine_color_term = 0
 let g:indentLine_char = '¦'
+
+"===========================
+"=== White Space options ===
+"===========================
+
+autocmd BufEnter * EnableStripWhitespaceOnSave
 
 "=======================
 "=== Rainbow options ===
@@ -233,6 +239,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_c_include_dirs = ['include']
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -254,6 +262,9 @@ let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols={}
 endif
+
+let g:airline_detect_crypt = 0
+let g:airline_detect_spell = 0
 
 "==============================
 "=== NERDCommenter Options ===
