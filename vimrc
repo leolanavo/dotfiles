@@ -76,8 +76,12 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 "---------------------
 "--- Auto Complete ---
 "---------------------
-Plug 'valloric/youcompleteme', { 'do': './install.py --all' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'zchee/deoplete-clang'
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neoinclude.vim'
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'poppyschmo/deoplete-latex'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -169,13 +173,21 @@ if has("syntax")
     au BufNewFile,BufRead *.jq set filetype=javascript
 endif
 
-"=============================
-"=== YouCompleteMe Options ===
-"=============================
+"========================
+""=== Deoplete options ===
+"========================
 
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_confirm_extra_conf = 0
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 set completeopt-=preview
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#max_list = 10
+
+let g:deoplete#sources#clang#libclang_path = '/lib/llvm/build/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
+
+autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
+let g:JavaComplete_LibsPath = '~/Programação/MAC323/algs4.jar'
 
 "=======================
 "=== Tagbar options  ===
