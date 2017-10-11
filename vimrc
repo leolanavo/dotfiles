@@ -189,6 +189,9 @@ let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
 autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_LibsPath = '~/Programação/MAC323/algs4.jar'
 
+let g:neoinclude#paths = {}
+let g:neoinclude#paths.c = '~/Programação/USP/MAC0422/EP2/include'
+
 "=======================
 "=== Tagbar options  ===
 "=======================
