@@ -37,7 +37,7 @@ module-margin = 1
 
 modules-left = i3
 modules-center = date
-modules-right = backlight volume gmail battery
+modules-right = backlight volume battery
 
 ;===========================================
 ;=============== Date Module ===============
@@ -231,7 +231,7 @@ enable-scroll = false
 format = <label> <bar>
 format-underline = ${colors.foreground-alt}
 
-label =  
+label = 
 
 format-font = 2
 
@@ -251,19 +251,3 @@ bar-width = 10
 bar-fill = ─
 bar-empty = ─
 bar-indicator = |
-
-;============================================
-;=============== Gmail Module ===============
-;============================================
-
-[module/gmail]
-
-;--------------- Core ---------------
-type = custom/script
-exec = ~/.config/polybar/gmail/launch.py
-tail = true
-
-format-underline = ${colors.foreground-alt}
-
-;--------------- Opening Script ---------------
-click-left = ~/.config/polybar/gmail/open.sh
