@@ -185,13 +185,10 @@ let g:deoplete#max_list = 10
 
 let g:deoplete#sources#clang#libclang_path = '/lib/llvm/build/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
+let g:deoplete#sources#clang#flags = ["-Iinclude"]
 
 autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_LibsPath = '~/Programação/MAC323/algs4.jar'
-
-let g:neoinclude#paths = {}
-let g:neoinclude#paths.c = '~/Programação/USP/MAC0422/EP2/include'
-
 "=======================
 "=== Tagbar options  ===
 "=======================
