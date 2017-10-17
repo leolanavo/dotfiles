@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dotfiles=(Xresources bashrc zshrc compton.conf gitconfig inputrc vimrc)
-directories=(i3 nvim polybar)
+directories=(i3 nvim polybar termite)
 
 CONFIG=$HOME/.config/
 CURDIR=$(pwd)
