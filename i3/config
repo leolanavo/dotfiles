@@ -3,9 +3,30 @@
 # by Leonardo Lana                       #
 ##########################################
 
-#########################
-### i3s core options ###
-#########################
+###############
+### Aliases ###
+###############
+
+### Directories ###
+set $wall      $HOME/dotfiles/i3/wallpaper
+set $lock      $HOME/dotfiles/i3/lock
+set $scriptdir $HOME/scripts
+set $screendir $HOME/Imagens/Screenshots
+
+### Screenshots format ###
+set $format $screendir/$(date +%d:%m:%Y-%H:%M:%S).png
+
+### Workspaces' names ###
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 ### Colors' aliases ###
 set $back               #1d1F21
@@ -16,7 +37,11 @@ set $white              #C5C8C6
 set $yellow             #F0C674
 set $red                #B30000
 set $green              #B5BD56
-set $orange             #BE6129 
+set $orange             #BE6129
+
+#########################
+### i3s core options ###
+#########################
 
 ### Border's coloring ###
 #class                  border      backgr.     text        split
@@ -31,12 +56,12 @@ for_window [class="^.*"] border pixel 3
 
 ### Gaps options ###
 smart_gaps on
-gaps inner 10 
+gaps inner 10
 gaps outer 0
 
 ### Mod key ###
 # Mod1 = ALT
-set $mod Mod1 
+set $mod Mod1
 
 ### Font options ###
 font pango:monospace 10
@@ -65,11 +90,6 @@ floating_modifier $mod
 ### Print screen options ###
 ############################
 
-#DISCLAIMER: if the folder "$homedir/Imagens/Screenshots/" doens't exist
-#            the commands won't work.
-
-set $format $HOME/Imagens/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
-
 ### Whole screen ###
 bindsym Shift+Print exec maim -uoi root $format
 
@@ -84,7 +104,7 @@ bindsym Print exec maim -usko $format
 ###########################
 
 ### Orientation ###
-bindsym $mod+h split h 
+bindsym $mod+h split h
 bindsym $mod+v split v
 
 ### Fullscreen ###
@@ -100,18 +120,6 @@ bindsym $mod+Shift+space floating toggle
 ##################
 ### Workspaces ###
 ##################
-
-### Names ###
-set $ws1 "1" 
-set $ws2 "2"
-set $ws3 "3" 
-set $ws4 "4" 
-set $ws5 "5" 
-set $ws6 "6" 
-set $ws7 "7" 
-set $ws8 "8" 
-set $ws9 "9" 
-set $ws10 "10" 
 
 ### Navigation ###
 bindsym Ctrl+$mod+Left workspace prev
@@ -148,21 +156,17 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 ###################
 
 ### Closing ###
-bindsym $mod+Shift+q kill 
+bindsym $mod+Shift+q kill
 bindsym $mod+Shift+m exec pkill spotify
 
 ### Opening ###
-bindsym $mod+i exec discord
 bindsym $mod+m exec spotify
 bindsym $mod+p exec nautilus
-bindsym $mod+k exec genymotion
-bindsym $mod+o exec steam-runtime
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec termite
 bindsym $mod+n exec google-chrome-stable
 bindsym $mod+Shift+Return exec rofi -show run
 
 ### Scripts ###
-set $scriptdir $HOME/scripts
 
 bindsym $mod+b exec $scriptdir/toggletouchpad
 bindsym $mod+space exec $scriptdir/chlang
@@ -232,15 +236,13 @@ exec_always --no-startup-id $HOME/dotfiles/polybar/launch_polybar.sh
 ### Wallpaper ###
 #################
 
-set $wall $HOME/dotfiles/i3/wallpaper
 exec_always --no-startup-id exec feh --bg-scale $wall
 
 ###################
 ### Lock screen ###
 ###################
 
-set $lock $HOME/dotfiles/i3/lock
-bindsym $mod+l exec i3lock-extra -s -p -o $lock 
+bindsym $mod+l exec i3lock-extra -s -p -o $lock
 
 #############
 ### Modes ###
