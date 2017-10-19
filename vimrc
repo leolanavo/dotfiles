@@ -21,6 +21,14 @@ call plug#begin('~/.vim/plugged')
 "===================
 
 "---------------
+"--- Testing ---
+"---------------
+
+Plug 'jceb/vim-orgmode'
+Plug 'dkprice/vim-easygrep'
+Plug 'haya14busa/incsearch.vim'
+
+"---------------
 "--- Utility ---
 "---------------
 
@@ -40,15 +48,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ntpeters/vim-better-whitespace'
 
-Plug 'haya14busa/incsearch.vim'
-Plug 'dkprice/vim-easygrep'
-Plug 'jceb/vim-orgmode'
 
 "---------------------
 "--- Code Checking ---
 "---------------------
 
 Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/Conque-GDB'
 
 "-----------------------
 "--- Git Integration ---
@@ -76,12 +82,15 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 "---------------------
 "--- Auto Complete ---
 "---------------------
-Plug 'zchee/deoplete-clang'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neoinclude.vim'
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'poppyschmo/deoplete-latex'
+
+if ("nvim")
+    Plug 'zchee/deoplete-clang'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'poppyschmo/deoplete-latex'
+endif
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -300,7 +309,7 @@ endif
 "=== Popup Menu ===
 "==================
 
-hi Pmenu      guifg=#F8F8F8 guibg=#223344 gui=NONE ctermfg=15  ctermbg=232  cterm=NONE
+hi Pmenu      guifg=#F8F8F8 guibg=#000000 gui=NONE ctermfg=15  ctermbg=232  cterm=NONE
 hi PmenuSet   guifg=#66D9EF guibg=#111111 gui=NONE ctermfg=81  ctermbg=233 cterm=NONE
 hi PmenuSBar  guifg=#66D9EF guibg=#334455 gui=NONE ctermfg=81  ctermbg=59  cterm=NONE
 hi PmenuSel   guifg=#66D9EF guibg=#334455 gui=NONE ctermfg=81  ctermbg=59  cterm=NONE
@@ -316,7 +325,7 @@ hi NonText      guifg=#49483E guibg=NONE    gui=NONE ctermfg=59   ctermbg=NONE c
 hi StatusLine   guifg=#66D9EF guibg=#111111 gui=NONE ctermfg=81   ctermbg=233  cterm=NONE
 hi StatusLineNC guifg=#778899 guibg=#111111 gui=NONE ctermfg=103  ctermbg=233  cterm=NONE
 hi Search       guifg=#000000 guibg=#FFE972 gui=NONE ctermfg=00   ctermbg=221  cterm=NONE
-hi VertSplit    guifg=#75715E guibg=NONE    gui=NONE ctermfg=95   ctermbg=NONE cterm=NONE
+hi VertSplit    guifg=#666666 guibg=#666666 gui=NONE ctermfg=95   ctermbg=NONE cterm=NONE
 hi LineNr       guifg=#8F908A guibg=NONE    gui=NONE ctermfg=102  ctermbg=NONE cterm=NONE
 hi SignColumn   guifg=NONE    guibg=#211F1C gui=NONE ctermfg=NONE ctermbg=00   cterm=NONE
 
