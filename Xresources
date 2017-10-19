@@ -1,43 +1,26 @@
-#define black #000000
-#define lblack #363031
-#define red #ab1d1b
-#define lred #e24846
-#define pippo #1bab1d
-#define lgreen #46e248
-#define yellow #a9ab1b
-#define lyellow #dfe142
-#define blue #1d1bab
-#define lblue #4442e1
-#define magenta #ab1ba9
-#define lmagenta #e246e0
-#define cyan #1ba9ab
-#define lcyan #46e0e2
-#define white #ccd2d0
-#define lwhite #f4f5f5
+#define black    #000000
+#define red      #AA0000
+#define green    #00AA00
+#define yellow   #AA5500
+#define blue     #0000AA
+#define magenta  #AA00AA
+#define cyan     #00AAAA
+#define white    #AAAAAA
 
-*color0: black
-*color1: red
-*color2: green
-*color3: yellow
-*color4: blue
-*color5: magenta
-*color6: cyan
-*color7: white
-
-*color8: lblack
-*color9: lred
-*color10: lgreen
-*color11: lyellow
-*color12: lblue
-*color13: lmagenta
-*color14: lcyan
-*color15: lwhite
+#define lblack   #555555
+#define lred     #FF5555
+#define lgreen   #55FF55
+#define lyellow  #FFFF55
+#define lblue    #5555FF
+#define lmagenta #FF55FF
+#define lcyan    #55FFFF
+#define lwhite   #FFFFFF
 
 rofi.font:              Roboto Mono Bold 11.5
-rofi.color-normal:      black, lred, black, red, #ffffff
+rofi.color-normal:      black, lred, black, red, lwhite
 rofi.color-window:      black, black
 rofi.bw:                3
-rofi.terminal:          bash
+rofi.terminal:          zsh
 rofi.separator-style:   solid
 rofi.hide-scrollbar:    true
 rofi.lines:             10
