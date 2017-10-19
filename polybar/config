@@ -3,11 +3,10 @@
 ;======================================
 
 [colors]
-background = #000000
-foreground = #f4f5f5
-
-foreground-alt = #ab1d1b
-urgent = #ab1ba9
+background     = #000000
+foreground     = #FFFFFF
+foreground-alt = #AA0000
+urgent         = #AA00AA
 
 ;=============================================
 ;=============== Top Bar Setup ===============
@@ -17,17 +16,17 @@ urgent = #ab1ba9
 monitor = ${env:MONITOR}
 bottom = false
 
-width = 100%
-height = 28
+width     = 100%
+height    = 28
 line-size = 2
 
 font-0 = RobotoMono Nerd Font:size=11
 font-1 = Hack:fontformat=truetype:size=9;1
 
 label-active-font = 0
-tray-position = right
+tray-position     = right
 
-spacing = 1
+spacing       = 1
 padding-right = 1
 module-margin = 1
 
@@ -35,16 +34,16 @@ module-margin = 1
 ;=============== Modules ===============
 ;=======================================
 
-modules-left = i3
+modules-left   = i3
 modules-center = date
-modules-right = backlight volume battery
+modules-right  = backlight volume battery
 
 ;===========================================
 ;=============== Date Module ===============
 ;===========================================
 
 [module/date]
-type = internal/date
+type     = internal/date
 interval = 1.0
 
 date =  %d/%m
@@ -53,7 +52,7 @@ time =  %H:%M
 date-alt = %a, %d %B %Y
 time-alt = %H:%M:%S
 
-label = %date% %time%
+label           = %date% %time%
 label-underline = ${colors.foreground-alt}
 
 ;========================================
@@ -63,17 +62,17 @@ label-underline = ${colors.foreground-alt}
 [module/i3]
 
 ;--------------- Core ---------------
-type = internal/i3
+type            = internal/i3
 
-pin-workspaces = false
+pin-workspaces  = false
 
 strip-wsnumbers = true
-index-sort = true
+index-sort      = true
 
-enable-click = true
-enable-scroll = true
+enable-click    = true
+enable-scroll   = true
 wrapping-scroll = true
-reverse-scroll = false
+reverse-scroll  = false
 
 ;=============== WS Icons ===============
 
@@ -94,34 +93,34 @@ ws-icon-9 = 10;
 format = <label-state> <label-mode>
 
 ;--------------- Labels ---------------
-label-mode = %mode%
+label-mode         = %mode%
 label-mode-padding = 2
 
 ;--------------- Focused ---------------
 label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.foreground-alt}
-label-focused-underline = ${colors.foreground}
-label-focused-padding = 1
+label-focused-underline  = ${colors.foreground}
+label-focused-padding    = 1
 
 ;--------------- Unfocused ---------------
-label-unfocused = %icon%
+label-unfocused            = %icon%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 1
+label-unfocused-padding    = 1
 
 ;--------------- Visible ---------------
-label-visible = %icon%
+label-visible            = %icon%
 label-visible-foreground = ${colors.foreground}
 label-visible-background = ${colors.background}
-label-visible-padding = 1
+label-visible-padding    = 1
 
 ;--------------- Urgent ---------------
 label-urgent = %icon%
 label-urgent-foreground = ${colors.foreground}
 label-urgent-background = ${colors.urgent}
-label-urgent-underline = ${colors.foreground}
-label-urgent-padding = 1
+label-urgent-underline  = ${colors.foreground}
+label-urgent-padding    = 1
 
 ;==============================================
 ;=============== Battery Module ===============
@@ -130,23 +129,23 @@ label-urgent-padding = 1
 [module/battery]
 
 ;--------------- Core ---------------
-type = internal/battery
+type    = internal/battery
 battery = BAT0
 adapter = AC
 
 ;--------------- Formats ---------------
-format-charging = <animation-charging><label-charging>
+format-charging    = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
-format-full = <ramp-capacity><label-full>
+format-full        = <ramp-capacity><label-full>
 
-format-full-underline = ${colors.foreground-alt}
-format-charging-underline = ${colors.foreground-alt}
+format-full-underline        = ${colors.foreground-alt}
+format-charging-underline    = ${colors.foreground-alt}
 format-discharging-underline = ${colors.foreground-alt}
 
 ;--------------- Labels ---------------
-label-charging = %percentage%%
+label-charging    = %percentage%%
 label-discharging = ${self.label-charging}
-label-full = ${self.label-charging}
+label-full        = ${self.label-charging}
 
 ;--------------- Icons ---------------
 ramp-capacity-0 = 
@@ -179,30 +178,30 @@ type = internal/volume
 
 ;--------------- Labels ---------------
 label-volume-foreground = ${colors.foreground}
-label-muted =  ──────────
-label-muted-underline = ${colors.foreground-alt}
+label-muted             =  ──────────
+label-muted-underline   = ${colors.foreground-alt}
 
 ;--------------- Formats ---------------
 format-muted-foreground = ${colors.foreground}
-format-volume = <ramp-volume> <bar-volume>
+format-volume           = <ramp-volume> <bar-volume>
 format-volume-underline = ${colors.foreground-alt}
 
 ;--------------- Bar Fonts ---------------
-bar-volume-fill-font = 1
-bar-volume-empty-font = 1
+bar-volume-fill-font      = 1
+bar-volume-empty-font     = 1
 bar-volume-indicator-font = 1
 
 ;--------------- Bar Settings ---------------
-bar-volume-width = 10
+bar-volume-width    = 10
 bar-volume-gradient = false
 
 ;--------------- Bar Colors ---------------
 bar-volume-indicator-foreground = ${colors.foreground}
-bar-volume-empty-foreground = ${colors.foreground}
+bar-volume-empty-foreground     = ${colors.foreground}
 
 ;--------------- Bar Icons ---------------
-bar-volume-fill = ─
-bar-volume-empty = ─
+bar-volume-fill      = ─
+bar-volume-empty     = ─
 bar-volume-indicator = |
 
 ;--------------- Volume icons ---------------
@@ -215,36 +214,29 @@ ramp-volume-2 = 
 ;================================================
 
 [module/backlight]
+
+;--------------- Core ---------------
 type = internal/backlight
 card = intel_backlight
 
-; XRandR output to get get values from
-; Default: the monitor defined for the running bar
-
-; Create scroll handlers used to set the backlight value
-; Default: true
+;--------------- Scrolling ---------------
 enable-scroll = false
 
+;--------------- Formats ---------------
 format = <label> <bar>
 format-underline = ${colors.foreground-alt}
 
+;--------------- Labels ---------------
 label = 
 
-format-font = 2
-
-; Only applies if <ramp> is used
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
-
 ;--------------- Bar Fonts ---------------
-bar-fill-font = 1
-bar-empty-font = 1
+format-font        = 2
+bar-fill-font      = 1
+bar-empty-font     = 1
 bar-indicator-font = 1
 
-bar-width = 10
-bar-fill = ─
-bar-empty = ─
+;--------------- Bar Options ---------------
+bar-width     = 10
+bar-fill      = ─
+bar-empty     = ─
 bar-indicator = |
