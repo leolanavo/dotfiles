@@ -35,11 +35,11 @@ cursor_shape = block
 vim: ft=dosini cms=#%s
 
 [colors]
-foreground = #dcdccc
-foreground_bold = #ffffff
+foreground      = #FFFFFF
+foreground_bold = #FFFFFF
 
-background = rgba(0, 0, 0, 0.6)
-highlight = #2f2f2f
+background      = rgba(0, 0, 0, 0.6)
+highlight       = #2F2F2F
 
 color0  = #000000
 color1  = #AA0000
