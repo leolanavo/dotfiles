@@ -84,13 +84,12 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 "---------------------
 Plug 'Shougo/neoinclude.vim'
 
-if ("nvim")
-    Plug 'zchee/deoplete-clang'
-    Plug 'zchee/deoplete-jedi'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'artur-shaik/vim-javacomplete2'
-    Plug 'poppyschmo/deoplete-latex'
-endif
+Plug 'zchee/deoplete-clang'
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'poppyschmo/deoplete-latex'
+
 
 call plug#end()            " required
 filetype plugin indent on    " required
