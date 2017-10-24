@@ -72,7 +72,7 @@ if [ "$1" == "all" ]; then
     fontawesome_install
     nerdfont_install
     powerline_install
-elif [ "$1" == "dotfiles" ]; then
+elif [ "$1" == "dotfiles" ] || [ "$1" == ""]; then
     dotfiles_install
 elif [ "$1" == "ohmyzsh" ]; then
     oh_my_zsh_install
