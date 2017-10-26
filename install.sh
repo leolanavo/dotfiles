@@ -53,6 +53,11 @@ fontawesome_install() {
     yaourt -S ttf-font-awesome --noconfirm
 }
 
+# rEFInd
+refind_install() {
+    ln -sf ./rEFInd-minimal-black /boot/EFI/BOOT/rEFInd-minimal-black
+}
+
 help_install() {
     echo "all:          Install every option below."
     echo "dotfiles:     Link the dotfiles with the ones in this directory"
@@ -62,6 +67,7 @@ help_install() {
     echo "nerdfont:     Install Nerd Fonts Complete"
     echo "fontawesome:  Install Fonts Awesome"
     echo "powerline:    Install Powerline fonts"
+    echo "refind:       Install rEFInd (needs sudo)"
 }
 
 if [ "$1" == "all" ]; then
@@ -72,6 +78,7 @@ if [ "$1" == "all" ]; then
     fontawesome_install
     nerdfont_install
     powerline_install
+    refind_install
 elif [ "$1" == "dotfiles" ] || [ "$1" == ""]; then
     dotfiles_install
 elif [ "$1" == "ohmyzsh" ]; then
@@ -90,6 +97,8 @@ elif [ "$1" == "nerdfont" ]; then
     nerdfont_install
 elif [ "$1" == "powerline" ]; then
     powerline_install
+elif [ "$1" == "refind" ]; then
+    refind_install
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
     help_install
 else
