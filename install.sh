@@ -55,7 +55,7 @@ fontawesome_install() {
 
 # rEFInd
 refind_install() {
-    ln -sf ./rEFInd-minimal-black /boot/EFI/BOOT/rEFInd-minimal-black
+    cp -f ./rEFInd-minimal-black /boot/EFI/BOOT/rEFInd-minimal-black
 }
 
 help_install() {
