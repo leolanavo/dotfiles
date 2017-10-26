@@ -20,7 +20,7 @@ width     = 100%
 height    = 28
 line-size = 2
 
-font-0 = RobotoMono Nerd Font:size=11
+font-0 = RobotoMono Nerd Font:size=12
 font-1 = Hack:fontformat=truetype:size=9;1
 
 label-active-font = 0
