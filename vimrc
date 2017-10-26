@@ -61,6 +61,7 @@ Plug 'vim-scripts/Conque-GDB'
 "-----------------------
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 "--------------
 "--- Beauty ---
@@ -84,7 +85,7 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 "---------------------
 Plug 'Shougo/neoinclude.vim'
 
-Plug 'zchee/deoplete-clang'
+"Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'artur-shaik/vim-javacomplete2'
@@ -103,12 +104,13 @@ filetype plugin indent on    " required
 "########################
 
 map <silent> <C-g> :10Term<CR>
-map <silent> <F2> :Autoformat<CR>
-map <C-s> :SyntasticToggleMode<CR>
-map <silent> <F9> :TagbarToggle<CR>
-map <silent> <F8> :NERDTreeToggle<CR>
-map <silent> mv :vertical resize 83<CR>
-map <silent> mh :resize 23<CR>
+map <silent> <F2>  :Autoformat<CR>
+map <C-s>          :SyntasticToggleMode<CR>
+map <silent> <F9>  :TagbarToggle<CR>
+map <silent> <F8>  :NERDTreeToggle<CR>
+map <silent> mv    :vertical resize 83<CR>
+map <silent> mh    :resize 23<CR>
+map <silent> <C-G> :GitGutterToggle<CR>
 
 "=========================
 "=== Interface Options ===
@@ -119,6 +121,7 @@ set mouse=a
 set cursorline
 set splitbelow
 set splitright
+set updatetime=250
 let g:tex_conceal=0
 
 "==========================
@@ -150,22 +153,22 @@ endif
 set t_Co=256 "Enable the terminal to recognize 256 colors
 set background=dark
 
-let g:terminal_color_0  = '#2e3436'
-let g:terminal_color_1  = '#cc0000'
-let g:terminal_color_2  = '#4e9a06'
-let g:terminal_color_3  = '#c4a000'
-let g:terminal_color_4  = '#3465a4'
-let g:terminal_color_5  = '#75507b'
-let g:terminal_color_6  = '#0b939b'
-let g:terminal_color_7  = '#d3d7cf'
-let g:terminal_color_8  = '#555753'
-let g:terminal_color_9  = '#ef2929'
-let g:terminal_color_10 = '#8ae234'
-let g:terminal_color_11 = '#fce94f'
-let g:terminal_color_12 = '#729fcf'
-let g:terminal_color_13 = '#ad7fa8'
-let g:terminal_color_14 = '#00f5e9'
-let g:terminal_color_15 = '#eeeeec'
+let g:terminal_color_0  = '#000000'
+let g:terminal_color_1  = '#AA0000'
+let g:terminal_color_2  = '#00AA00'
+let g:terminal_color_3  = '#AA5500'
+let g:terminal_color_4  = '#0000AA'
+let g:terminal_color_5  = '#AA00AA'
+let g:terminal_color_6  = '#00AAAA'
+let g:terminal_color_7  = '#AAAAAA'
+let g:terminal_color_8  = '#555555'
+let g:terminal_color_9  = '#FF5555'
+let g:terminal_color_10 = '#55FF55'
+let g:terminal_color_11 = '#FFFF55'
+let g:terminal_color_12 = '#5555FF'
+let g:terminal_color_13 = '#FF55FF'
+let g:terminal_color_14 = '#55FFFF'
+let g:terminal_color_15 = '#FFFFFF'
 
 "########################
 "### Plugin's Options ###
@@ -275,7 +278,7 @@ let g:syntastic_enable_racket_racket_checker = 1
 "=== Airline Options ===
 "=======================
 
-let g:airline_theme='badwolf'
+let g:airline_theme='molokai'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
