@@ -78,7 +78,6 @@ if [ "$1" == "all" ]; then
     fontawesome_install
     nerdfont_install
     powerline_install
-    refind_install
 elif [ "$1" == "dotfiles" ] || [ "$1" == ""]; then
     dotfiles_install
 elif [ "$1" == "ohmyzsh" ]; then
