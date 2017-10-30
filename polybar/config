@@ -46,7 +46,7 @@ modules-right  = backlight volume battery
 type     = internal/date
 interval = 1.0
 
-date =  %d/%m
+date =  %d/%m
 time =  %H:%M
 
 date-alt = %a, %d %B %Y
