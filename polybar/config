@@ -20,14 +20,14 @@ width     = 100%
 height    = 28
 line-size = 2
 
-font-0 = RobotoMono Nerd Font:size=12
+font-0 = RobotoMono Nerd Font:size=11
 font-1 = Hack:fontformat=truetype:size=9;1
 
 label-active-font = 0
 tray-position     = right
 
 spacing       = 1
-padding-right = 1
+padding-right = 0
 module-margin = 1
 
 ;=======================================
@@ -54,6 +54,7 @@ time-alt = %H:%M:%S
 
 label           = %date% %time%
 label-underline = ${colors.foreground-alt}
+format-padding = 1
 
 ;========================================
 ;=============== i3 Module ==============
@@ -223,14 +224,15 @@ card = intel_backlight
 enable-scroll = false
 
 ;--------------- Formats ---------------
-format = <label> <bar>
+format =<label><bar>
 format-underline = ${colors.foreground-alt}
+format-padding = 1
 
 ;--------------- Labels ---------------
 label = 
 
 ;--------------- Bar Fonts ---------------
-format-font        = 2
+format-font        = 0
 bar-fill-font      = 1
 bar-empty-font     = 1
 bar-indicator-font = 1
