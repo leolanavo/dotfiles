@@ -84,8 +84,7 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 "--- Auto Complete ---
 "---------------------
 Plug 'Shougo/neoinclude.vim'
-
-"Plug 'zchee/deoplete-clang'
+Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'artur-shaik/vim-javacomplete2'
