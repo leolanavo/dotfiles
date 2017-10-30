@@ -110,6 +110,7 @@ map <silent> <F8>  :NERDTreeToggle<CR>
 map <silent> mv    :vertical resize 83<CR>
 map <silent> mh    :resize 23<CR>
 map <silent> <C-G> :GitGutterToggle<CR>
+map <silent> <C-l> :NeoTexOn
 
 "=========================
 "=== Interface Options ===
