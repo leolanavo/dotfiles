@@ -48,13 +48,18 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ntpeters/vim-better-whitespace'
 
-
 "---------------------
 "--- Code Checking ---
 "---------------------
 
 Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/Conque-GDB'
+
+"-----------------
+"--- Languages ---
+"-----------------
+
+Plug 'udalov/kotlin-vim'
 
 "-----------------------
 "--- Git Integration ---
@@ -131,16 +136,16 @@ let g:tex_conceal=0
 set wrap
 set linebreak
 set expandtab
-
-au BufNewFile,BufRead *.rkt,*.html set tabstop=2
-au BufNewFile,BufRead *.rkt,*.html set softtabstop=2
-au BufNewFile,BufRead *.rkt,*.html set shiftwidth=2
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set textwidth=80
 set autoindent
+
+au BufNewFile,BufRead *.rkt,*.html set tabstop=2
+au BufNewFile,BufRead *.rkt,*.html set softtabstop=2
+au BufNewFile,BufRead *.rkt,*.html set shiftwidth=2
+au BufNewFile,BufRead *.rkt,*.html set textwidth=120
 
 "========================
 "=== Coloring Options ===
@@ -212,6 +217,16 @@ let g:tagbar_width = 30
 "==========================
 
 set splitbelow
+
+"=========================
+"=== GitGutter Options ===
+"=========================
+
+let g:gitgutter_sign_added = '⊕'
+let g:gitgutter_sign_modified = '⊘'
+let g:gitgutter_sign_removed = '⊗'
+let g:gitgutter_sign_removed_first_line = '⊙'
+let g:gitgutter_sign_modified_removed = '⊖'
 
 "===========================
 "=== Indent Line options ===
