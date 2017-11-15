@@ -14,7 +14,7 @@ set $scriptdir $HOME/scripts
 set $screendir $HOME/Pictures/Screenshots
 
 ### Screenshots format ###
-set $format $screendir/$(date +%d:%m:%Y-%H:%M:%S).png
+set $format $HOME/Pictures/Screenshots/$(date +%d:%m:%Y-%H:%M:%S).png
 
 ### Workspaces' names ###
 set $ws1 "1"
