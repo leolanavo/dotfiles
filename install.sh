@@ -53,6 +53,12 @@ fontawesome_install() {
     yaourt -S ttf-font-awesome --noconfirm
 }
 
+# Keymap
+keymap_install() {
+    sudo cp ./keymaps/* /usr/share/X11/xkb/symbols/
+    setxkbmap -layout br-custom -variant abnt2
+}
+
 # rEFInd
 refind_install() {
     cp -f ./rEFInd-minimal-black /boot/EFI/BOOT/rEFInd-minimal-black
@@ -67,7 +73,8 @@ help_install() {
     echo "nerdfont:     Install Nerd Fonts Complete"
     echo "fontawesome:  Install Fonts Awesome"
     echo "powerline:    Install Powerline fonts"
-    echo "refind:       Install rEFInd (needs sudo)"
+    echo "refind:       Install rEFInd (NEEDS SUDO)"
+    echo "keymap:       Install custom br-abnt2 keymap (NEEDS SUDO)"
 }
 
 if [ "$1" == "all" ]; then
@@ -78,6 +85,7 @@ if [ "$1" == "all" ]; then
     fontawesome_install
     nerdfont_install
     powerline_install
+    keymap_install
 elif [ "$1" == "dotfiles" ] || [ "$1" == ""]; then
     dotfiles_install
 elif [ "$1" == "ohmyzsh" ]; then
@@ -98,6 +106,8 @@ elif [ "$1" == "powerline" ]; then
     powerline_install
 elif [ "$1" == "refind" ]; then
     refind_install
+elif [ "$1" == "keymap" ]; then
+    keymap_install
 elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
     help_install
 else
