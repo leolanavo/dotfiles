@@ -68,3 +68,5 @@ alias nvimrc="vim ~/.config/nvim/init.vim"
 alias i3rc="vim ~/.config/i3/config"
 alias polybarrc="vim ~/.config/polybar/config"
 alias termiterc="vim ~/.config/termite/config"
+
+export PATH="$HOME/.yarn/bin:$PATH"
