@@ -112,10 +112,14 @@ map <silent> <F2>  :Autoformat<CR>
 map <C-s>          :SyntasticToggleMode<CR>
 map <silent> <F9>  :TagbarToggle<CR>
 map <silent> <F8>  :NERDTreeToggle<CR>
-map <silent> mv    :vertical resize 83<CR>
-map <silent> mh    :resize 23<CR>
 map <silent> <C-G> :GitGutterToggle<CR>
-map <silent> <C-l> :NeoTexOn
+map <silent> <C-l> :NeoTexOn<CR>
+
+"=== Normal Mappings ===
+nmap <silent> mv      :vertical resize 83<CR>
+nmap <silent> mh      :resize 23<CR>
+nmap <silent> <TAB>   gt
+nmap <silent> <S-TAB> :w<CR>:tabclose<CR>
 
 "=========================
 "=== Interface Options ===
