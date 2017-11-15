@@ -39,7 +39,7 @@ foreground      = #FFFFFF
 foreground_bold = #FFFFFF
 
 background      = rgba(0, 0, 0, 0.6)
-highlight       = #2F2F2F
+highlight       = #555555
 
 color0  = #000000
 color1  = #AA0000
