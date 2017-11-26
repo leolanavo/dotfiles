@@ -20,6 +20,7 @@ dotfiles_install() {
 
 # Oh-my-ZSH
 oh_my_zsh_install() {
+    rm -rf ~/.oh-my-zsh
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 }
 
@@ -73,7 +74,8 @@ help_install() {
     echo "nerdfont:     Install Nerd Fonts Complete"
     echo "fontawesome:  Install Fonts Awesome"
     echo "powerline:    Install Powerline fonts"
-    echo "refind:       Install rEFInd (NEEDS SUDO)"
+    echo "fonts:        Install the 3 fonts listed above"
+    echo "refind:       Install rEFInd (NEEDS SUDO), it's executed with "all" "
     echo "keymap:       Install custom br-abnt2 keymap (NEEDS SUDO)"
 }
 
