@@ -131,8 +131,8 @@ label-urgent-padding    = 1
 
 ;--------------- Core ---------------
 type    = internal/battery
-battery = BAT0
-adapter = AC
+battery = BAT1
+adapter = ADP1
 
 ;--------------- Formats ---------------
 format-charging    = <animation-charging><label-charging>
