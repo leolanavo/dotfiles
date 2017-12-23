@@ -54,9 +54,17 @@ fontawesome_install() {
     yaourt -S ttf-font-awesome --noconfirm
 }
 
+# i3lockextra
+i3lockextra_install() {
+    git clone https://github.com/edlanglois/i3lock-extra
+    sudo mv i3lock-extra/i3lock-extra /bin/
+    rm -rf i3lock-extra
+}
+
 # Keymap
 keymap_install() {
     sudo cp ./keymaps/* /usr/share/X11/xkb/symbols/
+    sudo echo "KEYMAP=br-custom" > /etc/vconsole.conf
     setxkbmap -layout br-custom -variant abnt2
 }
 
@@ -75,7 +83,8 @@ help_install() {
     echo "fontawesome:  Install Fonts Awesome"
     echo "powerline:    Install Powerline fonts"
     echo "fonts:        Install the 3 fonts listed above"
-    echo "refind:       Install rEFInd (NEEDS SUDO), it's executed with "all" "
+    echo "refind:       Install rEFInd (NEEDS SUDO), it isn't executed with "all" "
+    echo "i3lockextra:  Install i3lock-extra"
     echo "keymap:       Install custom br-abnt2 keymap (NEEDS SUDO)"
 }
 
@@ -88,6 +97,7 @@ if [ "$1" == "all" ]; then
     nerdfont_install
     powerline_install
     keymap_install
+    i3lockextra_install
 elif [ "$1" == "dotfiles" ] || [ "$1" == ""]; then
     dotfiles_install
 elif [ "$1" == "ohmyzsh" ]; then

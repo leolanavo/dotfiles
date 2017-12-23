@@ -8,8 +8,8 @@
 ###############
 
 ### Directories ###
-set $wall      $HOME/dotfiles/i3/wallpaper
-set $lock      $HOME/dotfiles/i3/lock
+set $wall      $HOME/dotfiles/images/wallpaper
+set $lock      $HOME/dotfiles/images/lock
 set $scriptdir $HOME/scripts
 set $screendir $HOME/Pictures/Screenshots
 

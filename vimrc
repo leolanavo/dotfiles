@@ -149,7 +149,7 @@ set autoindent
 au BufNewFile,BufRead *.rkt,*.html set tabstop=2
 au BufNewFile,BufRead *.rkt,*.html set softtabstop=2
 au BufNewFile,BufRead *.rkt,*.html set shiftwidth=2
-au BufNewFile,BufRead *.rkt,*.html set textwidth=120
+au BufNewFile,BufRead *.rkt,*.html,*.txt set textwidth=120
 
 "========================
 "=== Coloring Options ===
