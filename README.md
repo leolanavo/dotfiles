@@ -13,6 +13,3 @@ neovim, zshell, i3, polybar, termite, rofi, git, compton, bash.
 | python         | neovim                          |
 | termite        | compton powerline-fonts         |
 
-## TODO
-
-* Add ranger configuration
