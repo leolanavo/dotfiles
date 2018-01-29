@@ -163,7 +163,8 @@ bindsym $mod+Shift+m exec pkill spotify
 bindsym $mod+m exec spotify
 bindsym $mod+p exec nautilus
 bindsym $mod+Return exec termite
-bindsym $mod+n exec google-chrome-stable
+bindsym $mod+n exec opera
+bindsym $mod+j exec telegram-desktop
 bindsym $mod+Shift+Return exec rofi -show run
 
 ### Scripts ###
@@ -198,18 +199,18 @@ exec --no-startup-id "numlockx on"
 ###################
 
 ### Volume ###
-bindsym XF86AudioMute exec "amixer -q sset Master toggle"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master 10%-"
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 10%+"
+bindsym $mod+F7 exec "amixer -q sset Master toggle"
+bindsym $mod+F5 exec "amixer -q sset Master 10%"
+bindsym $mod+F6 exec "amixer -q sset Master 10%+"
 
 ### Media ###
-bindsym XF86AudioNext exec "playerctl next"
-bindsym XF86AudioPrev exec "playerctl previous"
-bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym $mod+F9  exec "playerctl next"
+bindsym $mod+F10 exec "playerctl previous"
+bindsym $mod+F11 exec "playerctl play-pause"
 
 ### Screen Brightness ###
-bindsym XF86MonBrightnessDown exec "light -U 10"
-bindsym XF86MonBrightnessUp exec "light -A 10"
+bindsym $mod+F3 exec "light -U 10"
+bindsym $mod+F4 exec "light -A 10"
 
 #########################
 ### Resize containers ###
