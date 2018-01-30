@@ -74,6 +74,7 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'bling/vim-airline'
 Plug 'sheerun/vim-polyglot'
+Plug 'posva/vim-vue'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jakedouglas/exuberant-ctags'
 Plug 'christoomey/vim-tmux-navigator'
@@ -146,9 +147,9 @@ set shiftwidth=4
 set textwidth=80
 set autoindent
 
-au BufNewFile,BufRead *.rkt,*.html set tabstop=2
-au BufNewFile,BufRead *.rkt,*.html set softtabstop=2
-au BufNewFile,BufRead *.rkt,*.html set shiftwidth=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue set tabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue set softtabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue set shiftwidth=2
 au BufNewFile,BufRead *.rkt,*.html,*.txt set textwidth=120
 
 "========================
