@@ -200,8 +200,8 @@ exec --no-startup-id "numlockx on"
 
 ### Volume ###
 bindsym $mod+F7 exec "amixer -q sset Master toggle"
-bindsym $mod+F5 exec "amixer -q sset Master 10%"
-bindsym $mod+F6 exec "amixer -q sset Master 10%+"
+bindsym $mod+F5 exec "amixer -q sset Master 10%+"
+bindsym $mod+F6 exec "amixer -q sset Master 10%-"
 
 ### Media ###
 bindsym $mod+F9  exec "playerctl next"

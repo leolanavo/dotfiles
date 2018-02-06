@@ -32,17 +32,13 @@ Plug 'haya14busa/incsearch.vim'
 "--- Utility ---
 "---------------
 
-Plug 'mattn/emmet-vim'
-Plug 'danro/rename.vim'
 Plug 'reedes/vim-wheel'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'wesQ3/vim-windowswap'
-Plug 'mklabs/split-term.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
@@ -53,13 +49,15 @@ Plug 'ntpeters/vim-better-whitespace'
 "---------------------
 
 Plug 'scrooloose/syntastic'
-Plug 'vim-scripts/Conque-GDB'
 
 "-----------------
 "--- Languages ---
 "-----------------
 
-Plug 'udalov/kotlin-vim'
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'mattn/emmet-vim', { 'for' : ['html', 'vue'] }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'vue' }
 
 "-----------------------
 "--- Git Integration ---
@@ -73,8 +71,6 @@ Plug 'airblade/vim-gitgutter'
 "--------------
 
 Plug 'bling/vim-airline'
-Plug 'sheerun/vim-polyglot'
-Plug 'posva/vim-vue'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jakedouglas/exuberant-ctags'
 Plug 'christoomey/vim-tmux-navigator'
@@ -89,12 +85,14 @@ Plug 'donRaphaco/neotex', { 'for': 'tex' }
 "---------------------
 "--- Auto Complete ---
 "---------------------
+
 Plug 'Shougo/neoinclude.vim'
-Plug 'zchee/deoplete-clang'
-Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
+Plug 'fishbullet/deoplete-ruby', { 'for': 'ruby' }
+Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'poppyschmo/deoplete-latex'
 
 
 call plug#end()            " required
@@ -108,12 +106,11 @@ filetype plugin indent on    " required
 "### Mappings Options ###
 "########################
 
-map <silent> <C-g> :10Term<CR>
 map <silent> <F2>  :Autoformat<CR>
 map <C-s>          :SyntasticToggleMode<CR>
 map <silent> <F9>  :TagbarToggle<CR>
 map <silent> <F8>  :NERDTreeToggle<CR>
-map <silent> <C-G> :GitGutterToggle<CR>
+map <silent> <C-g> :GitGutterToggle<CR>
 map <silent> <C-l> :NeoTexOn<CR>
 
 "=== Normal Mappings ===
@@ -121,6 +118,8 @@ nmap <silent> mv      :vertical resize 83<CR>
 nmap <silent> mh      :resize 23<CR>
 nmap <silent> <TAB>   gt
 nmap <silent> <S-TAB> :w<CR>:tabclose<CR>
+
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "=========================
 "=== Interface Options ===
@@ -147,10 +146,10 @@ set shiftwidth=4
 set textwidth=80
 set autoindent
 
-au BufNewFile,BufRead *.rkt,*.html,*.vue set tabstop=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue set softtabstop=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue set shiftwidth=2
-au BufNewFile,BufRead *.rkt,*.html,*.txt set textwidth=120
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss set tabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss set softtabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss set shiftwidth=2
+au BufNewFile,BufRead *.rkt,*.html,*.txt,*.css,*.js,*.scss set textwidth=120
 
 "========================
 "=== Coloring Options ===
@@ -209,19 +208,19 @@ let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
 let g:deoplete#sources#clang#flags = ["-Iinclude"]
 
 autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
-let g:JavaComplete_LibsPath = '~/Programação/MAC323/algs4.jar'
+
+"====================================
+"=== JavaScript Libraries options ===
+"====================================
+
+let g:used_javascript_libs = 'vue'
+
 "=======================
 "=== Tagbar options  ===
 "=======================
 
 let g:tagbar_autoclose = 0
 let g:tagbar_width = 30
-
-"==========================
-"=== Split-Term options ===
-"==========================
-
-set splitbelow
 
 "=========================
 "=== GitGutter Options ===
