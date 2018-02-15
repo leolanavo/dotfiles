@@ -191,7 +191,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "xrdb -load $HOME/.Xresources"
-exec --no-startup-id "compton --config $HOME/dotfiles/compton.conf -b"
+exec --no-startup-id "xcompmgr"
 exec --no-startup-id "numlockx on"
 
 ###################
