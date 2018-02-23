@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=(Xresources bashrc zshrc gitconfig inputrc vimrc)
+dotfiles=(Xresources bashrc zshrc gitconfig inputrc vimrc compton.conf)
 directories=(i3 nvim polybar termite ranger)
 
 CONFIG=$HOME/.config/
