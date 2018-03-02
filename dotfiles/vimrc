@@ -43,6 +43,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'vim-scripts/Rename2'
 
 "---------------------
 "--- Code Checking ---
@@ -76,11 +77,13 @@ Plug 'jakedouglas/exuberant-ctags'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline-themes'
 
-"-------------
-"--- Latex ---
-"-------------
+"---------------
+"--- Preview ---
+"---------------
 
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
 
 "---------------------
 "--- Auto Complete ---
@@ -183,6 +186,10 @@ let g:terminal_color_15 = '#FFFFFF'
 "### Plugin's Options ###
 "########################
 
+let vim_markdown_preview_toggle=2
+let vim_markdown_preview_github=1
+let vim_markdown_preview_hotkey='<C-p>'
+
 "======================
 "=== Syntax Options ===
 "======================
@@ -236,6 +243,7 @@ let g:gitgutter_sign_modified_removed = '⊖'
 "=== Indent Line options ===
 "===========================
 
+autocmd FileType markdown let g:indentLine_enabled=0
 let g:indentLine_enabled = 1
 let g:indentLine_setColors = 1
 let g:indentLine_color_term = 0
