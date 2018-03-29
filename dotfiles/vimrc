@@ -37,13 +37,14 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
+Plug 'vim-scripts/Rename2'
 Plug 'scrooloose/nerdtree'
 Plug 'wesQ3/vim-windowswap'
+Plug 'mklabs/split-term.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'vim-scripts/Rename2'
 
 "---------------------
 "--- Code Checking ---
@@ -110,7 +111,7 @@ filetype plugin indent on    " required
 "########################
 
 map <silent> <F2>  :Autoformat<CR>
-map <C-s>          :SyntasticToggleMode<CR>
+map          <C-s> :SyntasticToggleMode<CR>
 map <silent> <F9>  :TagbarToggle<CR>
 map <silent> <F8>  :NERDTreeToggle<CR>
 map <silent> <C-g> :GitGutterToggle<CR>
@@ -121,7 +122,9 @@ nmap <silent> mv      :vertical resize 83<CR>
 nmap <silent> mh      :resize 23<CR>
 nmap <silent> <TAB>   gt
 nmap <silent> <S-TAB> :w<CR>:tabclose<CR>
+nmap <silent> <C-c> :10Term<CR>
 
+"=== Insert Mapping ===
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "=========================
@@ -210,8 +213,8 @@ set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#max_list = 10
 
-let g:deoplete#sources#clang#libclang_path = '/lib/llvm/build/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/lib/llvm/build/lib/clang'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 let g:deoplete#sources#clang#flags = ["-Iinclude"]
 
 autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
