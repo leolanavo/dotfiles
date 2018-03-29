@@ -122,8 +122,8 @@ bindsym $mod+Shift+space floating toggle
 ##################
 
 ### Navigation ###
-bindsym Ctrl+$mod+Left workspace prev
-bindsym Ctrl+$mod+Right workspace next
+bindsym Ctrl+$mod+Right workspace prev
+bindsym Ctrl+$mod+Left workspace next
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -156,7 +156,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 ###################
 
 ### Closing ###
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 bindsym $mod+Shift+m exec pkill spotify
 
 ### Opening ###
@@ -183,7 +183,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 ### exit i3 ###
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #######################
 ### Startup options ###
