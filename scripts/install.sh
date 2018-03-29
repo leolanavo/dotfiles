@@ -2,14 +2,11 @@
 
 case $1 in
 all) ./fonts.sh && ./i3lockextra.sh && ./keymap.sh && \
-     ./ohmyzsh.sh && ./powerlevel9k.sh && \
-    ./plug.sh && ./dotfiles.sh ;;
+     ./ohmyzsh.sh && ./plug.sh && ./dotfiles.sh ;;
 
 dotfiles) ./dotfiles.sh ;;
 
 ohmyzsh) ./ohmyzsh.sh ;;
-
-powerlevel9k) ./powerlevel9k.sh ;;
 
 vimplug) ./plug.sh ;;
 
