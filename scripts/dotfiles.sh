@@ -18,3 +18,5 @@ for i in ${directories[@]}; do
     rm -rf $CONFIG/$i
     ln -svf $PARENTDIR/$i $CONFIG/
 done
+
+mkdir ~/Pictures/Screenshots
