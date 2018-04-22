@@ -57,9 +57,9 @@ Plug 'scrooloose/syntastic'
 "-----------------
 
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'mattn/emmet-vim', { 'for' : ['html', 'vue'] }
+Plug 'mattn/emmet-vim', { 'for' : ['html', 'vue', 'js'] }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'vue' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['vue', 'jsx', 'js'] }
 
 "-----------------------
 "--- Git Integration ---
@@ -152,10 +152,16 @@ set shiftwidth=4
 set textwidth=80
 set autoindent
 
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss set tabstop=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss set softtabstop=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss set shiftwidth=2
-au BufNewFile,BufRead *.rkt,*.html,*.txt,*.css,*.js,*.scss set textwidth=120
+"==================================
+"=== File Specific Instructions ===
+"==================================
+
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml set tabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml set shiftwidth=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml set softtabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.txt,*.css,*.js,*.scss,*.yml set textwidth=120
+
+au FileType json set conceallevel=0
 
 "========================
 "=== Coloring Options ===
@@ -223,7 +229,7 @@ autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
 "=== JavaScript Libraries options ===
 "====================================
 
-let g:used_javascript_libs = 'vue'
+let g:used_javascript_libs = 'vue,react'
 
 "=======================
 "=== Tagbar options  ===
@@ -247,6 +253,7 @@ let g:gitgutter_sign_modified_removed = '⊖'
 "===========================
 
 autocmd FileType markdown let g:indentLine_enabled=0
+autocmd FileType json let g:indentLine_enabled=0
 let g:indentLine_enabled = 1
 let g:indentLine_setColors = 1
 let g:indentLine_color_term = 0
