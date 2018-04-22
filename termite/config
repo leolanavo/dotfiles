@@ -24,7 +24,7 @@ dynamic_title = true
 
 ### URL ###
 clickable_url = true
-browser = xdg-open
+browser = opera
 filter_unmatched_urls = true
 
 ### Cursor ###
