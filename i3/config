@@ -169,8 +169,7 @@ bindsym $mod+Shift+Return exec rofi -show run
 
 ### Scripts ###
 
-bindsym $mod+b exec $scriptdir/toggletouchpad
-bindsym $mod+space exec $scriptdir/chlang
+bindsym $mod+b exec ~/dotfiles/i3/i3_dual_monitor.sh
 
 #####################
 ### i3's commands ###
@@ -199,8 +198,8 @@ exec --no-startup-id "numlockx on"
 ###################
 
 ### Volume ###
-bindsym $mod+F7 exec "amixer -q sset Master toggle"
-bindsym $mod+F5 exec "amixer -q sset Master 10%+"
+bindsym $mod+F5 exec "amixer -q sset Master toggle"
+bindsym $mod+F7 exec "amixer -q sset Master 10%+"
 bindsym $mod+F6 exec "amixer -q sset Master 10%-"
 
 ### Media ###
