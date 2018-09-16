@@ -91,13 +91,16 @@ floating_modifier $mod
 ############################
 
 ### Whole screen ###
-bindsym Shift+Print exec maim -uoi root $format
+bindsym $mod+Print exec maim -uoi root | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+Print exec maim -uoi root $format
 
 ### Focused container ###
+bindsym Ctrl+Print exec maim -uoi $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec maim -uoi $(xdotool getactivewindow) $format
 
 ### Selected area ###
-bindsym Print exec maim -usko $format
+bindsym Print exec maim -usko | xclip -selection clipboard -t image/png
+bindsym Shift+Print exec maim -usko $format
 
 ###########################
 ### Containers' display ###
@@ -146,7 +149,7 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+7 move container to workspace $ws7leolanavo@gmail.com
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
@@ -162,9 +165,10 @@ bindsym $mod+Shift+m exec pkill spotify
 ### Opening ###
 bindsym $mod+m exec spotify
 bindsym $mod+p exec nautilus
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec terminator
 bindsym $mod+n exec opera
 bindsym $mod+j exec telegram-desktop
+bindsym $mod+k exec discord
 bindsym $mod+Shift+Return exec rofi -show run
 
 ### Scripts ###
