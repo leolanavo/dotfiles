@@ -24,14 +24,16 @@ call plug#begin('~/.vim/plugged')
 "--- Testing ---
 "---------------
 
-Plug 'jceb/vim-orgmode'
-Plug 'dkprice/vim-easygrep'
-Plug 'haya14busa/incsearch.vim'
+Plug 'mxw/vim-jsx'
+Plug 'elixir-editors/vim-elixir'
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 "---------------
 "--- Utility ---
 "---------------
 
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'reedes/vim-wheel'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
@@ -56,10 +58,9 @@ Plug 'scrooloose/syntastic'
 "--- Languages ---
 "-----------------
 
-Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'mattn/emmet-vim', { 'for' : ['html', 'vue', 'js'] }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['vue', 'jsx', 'js'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'vue' }
 
 "-----------------------
 "--- Git Integration ---
@@ -74,7 +75,6 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'bling/vim-airline'
 Plug 'ryanoasis/vim-devicons'
-Plug 'jakedouglas/exuberant-ctags'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -83,8 +83,8 @@ Plug 'vim-airline/vim-airline-themes'
 "---------------
 
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'md' }
+Plug 'iamcco/markdown-preview.vim', { 'for': 'md' }
 
 "---------------------
 "--- Auto Complete ---
@@ -113,7 +113,7 @@ filetype plugin indent on    " required
 map <silent> <F2>  :Autoformat<CR>
 map          <C-s> :SyntasticToggleMode<CR>
 map <silent> <F9>  :TagbarToggle<CR>
-map <silent> <F8>  :NERDTreeToggle<CR>
+map <silent> <F8>  :NERDTreeTabsToggle<CR>
 map <silent> <C-g> :GitGutterToggle<CR>
 map <silent> <C-l> :NeoTexOn<CR>
 
@@ -124,14 +124,11 @@ nmap <silent> <TAB>   gt
 nmap <silent> <S-TAB> :w<CR>:tabclose<CR>
 nmap <silent> <C-c> :10Term<CR>
 
-"=== Insert Mapping ===
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
 "=========================
 "=== Interface Options ===
 "=========================
 
-set number
+set number relativenumber
 set mouse=a
 set cursorline
 set splitbelow
@@ -156,10 +153,10 @@ set autoindent
 "=== File Specific Instructions ===
 "==================================
 
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml set tabstop=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml set shiftwidth=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml set softtabstop=2
-au BufNewFile,BufRead *.rkt,*.html,*.txt,*.css,*.js,*.scss,*.yml set textwidth=120
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.rb,*graphql,*.exs set tabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.rb,*graphql,*.exs set shiftwidth=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.rb,*graphql,*.exs set softtabstop=2
+au BufNewFile,BufRead *.txt,*.md set textwidth=120
 
 au FileType json set conceallevel=0
 
@@ -229,7 +226,7 @@ autocmd FileType *.java setlocal omnifunc=javacomplete#Complete
 "=== JavaScript Libraries options ===
 "====================================
 
-let g:used_javascript_libs = 'vue,react'
+let g:used_javascript_libs = 'vue'
 
 "=======================
 "=== Tagbar options  ===
