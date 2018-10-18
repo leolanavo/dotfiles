@@ -69,4 +69,10 @@ alias i3rc="vim ~/.config/i3/config"
 alias polybarrc="vim ~/.config/polybar/config"
 alias termiterc="vim ~/.config/termite/config"
 
+alias dcu="docker-compose up"
+alias dcb="docker-compose build --no-cache --force-rm"
+alias dcd="docker-compose down"
+alias dce="docker-compose exec"
+alias dcr="docker-compose run --rm"
+
 export PATH="$HOME/.yarn/bin:$PATH"
