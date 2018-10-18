@@ -8,7 +8,7 @@
 ###############
 
 ### Directories ###
-set $wall      $HOME/dotfiles/images/wallpaper
+set $wall      $HOME/dotfiles/images/botd.jpg
 set $lock      $HOME/dotfiles/images/lock
 set $scriptdir $HOME/scripts
 set $screendir $HOME/Pictures/Screenshots
