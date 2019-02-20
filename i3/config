@@ -8,7 +8,7 @@
 ###############
 
 ### Directories ###
-set $wall      $HOME/dotfiles/images/botd.jpg
+set $wall      $HOME/dotfiles/images/wallpaper
 set $lock      $HOME/dotfiles/images/lock
 set $scriptdir $HOME/scripts
 set $screendir $HOME/Pictures/Screenshots
@@ -61,7 +61,7 @@ gaps outer 0
 
 ### Mod key ###
 # Mod1 = ALT
-set $mod Mod1
+set $mod Mod4
 
 ### Font options ###
 font pango:monospace 10
@@ -149,7 +149,7 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7leolanavo@gmail.com
+bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
@@ -166,9 +166,10 @@ bindsym $mod+Shift+m exec pkill spotify
 bindsym $mod+m exec spotify
 bindsym $mod+p exec nautilus
 bindsym $mod+Return exec terminator
-bindsym $mod+n exec opera
+bindsym $mod+n exec google-chrome-stable
 bindsym $mod+j exec telegram-desktop
 bindsym $mod+k exec discord
+bindsym $mod+i exec code
 bindsym $mod+Shift+Return exec rofi -show run
 
 ### Scripts ###
@@ -254,3 +255,13 @@ bindsym $mod+l exec i3lock-extra -s -p -o $lock
 #############
 
 bindsym $mod+r mode "resize"
+
+#############################
+### Workspaces Assigments ###
+#############################
+
+assign [class="(?i)code"] $ws1
+assign [class="(?i)google-chrome"] $ws2
+assign [class="(?i)terminator"] $ws3
+assign [class="(?i)telegram"] $ws5
+assign [class="(?i)discord"] $ws6

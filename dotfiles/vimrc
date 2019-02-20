@@ -26,10 +26,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'mxw/vim-jsx'
 Plug 'elixir-editors/vim-elixir'
+Plug 'rhysd/vim-crystal'
 
-Plug 'flazz/vim-colorschemes'
-Plug 'tomasiser/vim-code-dark'
-Plug 'posva/vim-vue'
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
@@ -62,6 +60,7 @@ Plug 'scrooloose/syntastic'
 "--- Languages ---
 "-----------------
 
+Plug 'posva/vim-vue'
 Plug 'mattn/emmet-vim', { 'for' : ['html', 'vue', 'js'] }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
@@ -78,6 +77,8 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'bling/vim-airline'
 Plug 'ryanoasis/vim-devicons'
+Plug 'flazz/vim-colorschemes'
+Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline-themes'
 
 "---------------
@@ -85,8 +86,8 @@ Plug 'vim-airline/vim-airline-themes'
 "---------------
 
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'md' }
 Plug 'iamcco/markdown-preview.vim', { 'for': 'md' }
+Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'md' }
 
 "---------------------
 "--- Auto Complete ---
@@ -155,9 +156,9 @@ set autoindent
 "=== File Specific Instructions ===
 "==================================
 
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.rb,*graphql,*.exs set tabstop=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.rb,*graphql,*.exs set shiftwidth=2
-au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.rb,*graphql,*.exs set softtabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.yaml,*.rb,*.cr,*graphql,*.exs set tabstop=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.yaml,*.rb,*.cr,*graphql,*.exs set shiftwidth=2
+au BufNewFile,BufRead *.rkt,*.html,*.vue,*.css,*.js,*.scss,*.yml,*.yaml,*.rb,*.cr,*graphql,*.exs set softtabstop=2
 au BufNewFile,BufRead *.txt,*.md set textwidth=120
 
 au FileType json set conceallevel=0
