@@ -8,7 +8,7 @@
 ###############
 
 ### Directories ###
-set $wall      $HOME/dotfiles/images/wallpaper
+set $wall      $HOME/dotfiles/images/mustang
 set $lock      $HOME/dotfiles/images/lock
 set $scriptdir $HOME/scripts
 set $screendir $HOME/Pictures/Screenshots
@@ -196,6 +196,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "xrdb -load $HOME/.Xresources"
 exec --no-startup-id "compton"
+exec --no-startup-id "blueberry-tray"
 exec --no-startup-id "numlockx on"
 
 ###################
