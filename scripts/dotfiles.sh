@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dotfiles=(Xresources bashrc zshrc gitconfig inputrc vimrc compton.conf)
-directories=(i3 nvim polybar termite ranger)
+directories=(i3 nvim polybar terminator ranger)
 
 CONFIG=$HOME/.config/
 PARENTDIR=$(dirname `pwd`)
