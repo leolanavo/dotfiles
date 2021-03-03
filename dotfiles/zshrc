@@ -47,7 +47,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='184'
 ### Plugins ###
 ###############
 
-plugins=(git docker-compose)
+plugins=(git docker-compose kubectl)
 
 ##############
 ### Source ###
@@ -70,7 +70,4 @@ alias polybarrc="vim ~/.config/polybar/config"
 alias termiterc="vim ~/.config/termite/config"
 
 alias c="code -r ."
-alias reset-electron="pkill chrome && pkill code-oss && pkill code-oss && pkill Discord && pkill Discord"
-
-[ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
 
