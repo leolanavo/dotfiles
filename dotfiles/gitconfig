@@ -6,6 +6,7 @@
 	helper = cache
 [core]
 	excludesfile = ~/.gitignore_global
+    editor=nvim
 [diff]
     tool = nvim
 [difftool]
@@ -61,3 +62,5 @@
     header = normal
     help = normal
     error = normal
+[init]
+	defaultBranch = main
