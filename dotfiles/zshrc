@@ -47,7 +47,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='184'
 ### Plugins ###
 ###############
 
-plugins=(git docker-compose kubectl)
+plugins=(git docker-compose kubectl archlinux)
 
 ##############
 ### Source ###
