@@ -13,5 +13,3 @@ call LoadConfig('colors')
 call LoadConfig('keymap')
 call LoadConfig('plugins-config')
 
-source ~/.vimrc
-
