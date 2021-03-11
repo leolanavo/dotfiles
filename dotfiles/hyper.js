@@ -149,12 +149,12 @@ module.exports = {
           left: "cmd+shift+left",
           right: "cmd+shift+right"
         },
-        jump_prefix: "cmd+shift", // completed with 1-9 digits
+        jump_prefix: "meta+shift", // completed with 1-9 digits
         permutation_modifier: "option", // Added to jump and navigation hotkeys for pane permutation
         maximize: "meta+enter"
       },
       showIndicators: true, // Show pane number
-      indicatorPrefix: "✈", // Will be completed with pane number
+      indicatorPrefix: ">>", // Will be completed with pane number
       indicatorStyle: {
         // Added to indicator <div>
         position: "absolute",
