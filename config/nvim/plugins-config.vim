@@ -6,6 +6,9 @@ exec 'luafile' expand(g:custom_path . 'lua/nvim-compe.lua')
 
 "=== Telescope ===
 exec 'luafile' expand(g:custom_path . 'lua/telescope-nvim.lua')
+"
+"=== TreeSitter ===
+exec 'luafile' expand(g:custom_path . 'lua/treesitter.lua')
 
 "=== GitGutter Options ===
 
@@ -14,6 +17,19 @@ let g:gitgutter_sign_modified = '⊘'
 let g:gitgutter_sign_removed = '⊗'
 let g:gitgutter_sign_removed_first_line = '⊙'
 let g:gitgutter_sign_modified_removed = '⊖'
+
+"=== lightline ===
+
+let g:lightline = {
+      \ 'colorscheme': 'onedark',
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename'
+      \ }
+    \ }
+
+function! LightlineFilename()
+  return expand('%')
+endfunction
 
 "=== Indent Line options ===
 

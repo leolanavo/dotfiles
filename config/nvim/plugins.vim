@@ -10,10 +10,17 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'mattn/emmet-vim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim' " Required by telescope
 Plug 'nvim-telescope/telescope.nvim' " Better than fzf, amazing search
+
+"--------------
+"--- Syntax ---
+"--------------
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "---------------------------------
 "--- Language Server Protocol ---
@@ -43,7 +50,7 @@ Plug 'joshdick/onedark.vim'
 "---------------
 
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'iamcco/markdown-preview.vim', { 'for': 'md' }
-Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'md' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': ['markdown'] }
+
 
 call plug#end()

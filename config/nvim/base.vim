@@ -7,6 +7,8 @@ set relativenumber
 set cursorline
 set scrolloff=5
 set laststatus=2
+set list
+set listchars=tab:\>\ 
 
 "=== Search options ===
 
@@ -32,7 +34,6 @@ set splitright
 
 set wrap
 set linebreak
-set expandtab
 set breakindent
 set autoindent
 set smarttab
@@ -46,6 +47,8 @@ set textwidth=80
 
 set autoread
 set updatetime=250
+
+au FileType json set conceallevel=0
 
 "=== Fold options ===
 

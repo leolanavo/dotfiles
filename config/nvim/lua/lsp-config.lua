@@ -57,3 +57,9 @@ lspconfig.tsserver.setup {
     end,
     settings = {documentFormatting = false}
 }
+
+lspconfig.yamlls.setup{}
+
+lspconfig.dockerls.setup{}
+
+

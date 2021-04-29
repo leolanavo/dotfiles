@@ -1,23 +1,51 @@
 [global_config]
-  extra_styling = False
   handle_size = 20
+  extra_styling = False
+  scroll_tabbar = True
+  title_hide_sizetext = True
+  title_transmit_bg_color = "#a40000"
+  title_receive_fg_color = "#000000"
+  title_receive_bg_color = "#ffffff"
   inactive_color_offset = 0.7
   suppress_multiple_term_dialog = True
-  title_hide_sizetext = True
-  title_receive_bg_color = "#ffffff"
-  title_receive_fg_color = "#000000"
-  title_transmit_bg_color = "#a40000"
 [keybindings]
-  switch_to_tab_1 = <Primary>1
-  switch_to_tab_10 = <Primary>0
-  switch_to_tab_2 = <Primary>2
-  switch_to_tab_3 = <Primary>3
-  switch_to_tab_4 = <Primary>4
-  switch_to_tab_5 = <Primary>5
-  switch_to_tab_6 = <Primary>6
-  switch_to_tab_7 = <Primary>7
-  switch_to_tab_8 = <Primary>8
-  switch_to_tab_9 = <Primary>9
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+  switch_to_tab_10 = <Alt>0
+  layout_launcher = <Shift><Alt>l
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_darkness = 1.0
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = FiraCode Nerd Font 12
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+  [[Dual Monitor]]
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = RobotoMono Nerd Font 18
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -71,25 +99,3 @@
       type = Terminal
       uuid = d1ded16a-5b15-4f36-9045-4bf1cc3f7ef0
 [plugins]
-[profiles]
-  [[default]]
-    background_darkness = 0.3
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = RobotoMono Nerd Font 12
-    foreground_color = "#ffffff"
-    icon_bell = False
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[Dual Monitor]]
-    background_darkness = 0.8
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = RobotoMono Nerd Font 18
-    foreground_color = "#ffffff"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False

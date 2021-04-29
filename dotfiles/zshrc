@@ -74,3 +74,9 @@ alias termiterc="vim ~/.config/termite/config"
 
 alias c="code -r ."
 
+alias sshelo7ctl="ssh -i ~/dev/keys/us-default-key.pem core@elo7ctl.elo7aws.com.br -t 'bash -ic ./elo7ctl.sh'"
+alias sshu='ssh -i ~/dev/keys/sa-default-key.pem -l ubuntu'
+
+alias vpnck="ping -c 1 pass.elo7aws.com.br >/dev/null && if [ $? -eq 0 ]; then; echo 'VPN ligada'; fi"
+alias vpnoff="sudo pkill openvpn"
+alias vpnon="sudo openvpn --suppress-timestamps --nobind --config /etc/openvpn/client/client.config --daemon --verb 0"
