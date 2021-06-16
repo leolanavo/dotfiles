@@ -50,7 +50,7 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='252'
 ### Plugins ###
 ###############
 
-plugins=(git docker-compose kubectl archlinux)
+plugins=(git docker-compose kubectl archlinux zsh-syntax-highlighting)
 
 ##############
 ### Source ###
@@ -80,3 +80,4 @@ alias sshu='ssh -i ~/dev/keys/sa-default-key.pem -l ubuntu'
 alias vpnck="ping -c 1 pass.elo7aws.com.br >/dev/null && if [ $? -eq 0 ]; then; echo 'VPN ligada'; fi"
 alias vpnoff="sudo pkill openvpn"
 alias vpnon="sudo openvpn --suppress-timestamps --nobind --config /etc/openvpn/client/client.config --daemon --verb 0"
+
