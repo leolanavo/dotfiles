@@ -3,7 +3,7 @@ if has("syntax")
     filetype on
 endif
 
-colorscheme onedark
+colorscheme dracula
 
 set termguicolors
 

@@ -1,12 +1,13 @@
 "=== Nvim LSP Config ===
 exec 'luafile' expand(g:custom_path . 'lua/lsp-config.lua')
+autocmd VimEnter * :COQnow
 
 "=== Nvim Compe ===
-exec 'luafile' expand(g:custom_path . 'lua/nvim-compe.lua')
+"exec 'luafile' expand(g:custom_path . 'lua/nvim-compe.lua')
 
 "=== Telescope ===
 exec 'luafile' expand(g:custom_path . 'lua/telescope-nvim.lua')
-"
+
 "=== TreeSitter ===
 exec 'luafile' expand(g:custom_path . 'lua/treesitter.lua')
 
@@ -21,10 +22,15 @@ let g:gitgutter_sign_modified_removed = '⊖'
 "=== lightline ===
 
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'dracula',
+      \ 'active': {
+      \   'left': [ ['mode', 'paste'],
+      \             ['gitbranch', 'filename', 'modified' ] ]
+      \ },
       \ 'component_function': {
-      \   'filename': 'LightlineFilename'
-      \ }
+      \   'filename': 'LightlineFilename',
+      \   'gitbranch': 'gitbranch#name',
+      \ },
     \ }
 
 function! LightlineFilename()

@@ -1,4 +1,5 @@
 local lspconfig = require 'lspconfig'
+local coq = require 'coq'
 
 -- Use ehanced LSP stuff
 vim.lsp.handlers['textDocument/codeAction'] =
@@ -47,8 +48,9 @@ local on_attach = function(client, bufnr)
   end
 end
 
-lspconfig.tsserver.setup {
-    root_dir = lspconfig.util.root_pattern("yarn.lock", "lerna.json", ".git"),
+-- Language Servers --
+lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({
+    root_dir = lspconfig.util.root_pattern("package.json", "yarn.lock", "lerna.json", ".git"),
     on_attach = function(client, bufnr)
         -- This makes sure tsserver is not used for formatting (I prefer prettier)
         client.resolved_capabilities.document_formatting = false
@@ -56,10 +58,11 @@ lspconfig.tsserver.setup {
         on_attach(client, bufnr)
     end,
     settings = {documentFormatting = false}
-}
+}))
 
-lspconfig.yamlls.setup{}
+lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({}))
 
-lspconfig.dockerls.setup{}
+lspconfig.dockerls.setup(coq.lsp_ensure_capabilities({}))
 
+lspconfig.svelte.setup(coq.lsp_ensure_capabilities({}))
 
