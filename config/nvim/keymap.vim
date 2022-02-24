@@ -24,6 +24,6 @@ map <silent> <C-b> :BufOnly<CR>
 
 "=== Quickfix list navigation ===
 map <C-j> :cn<CR>
-map <C-p> :cp<CR>
-map <silent> <C-l> :ClearQF<cr>
+map <C-k> :cp<CR>
+map <C-l> :ClearQF<cr>
 command! ClearQF execute 'cexpr [] | ccl'

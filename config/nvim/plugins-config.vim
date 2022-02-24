@@ -54,3 +54,6 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
+
+"=== Glow Options ===
+

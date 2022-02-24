@@ -1,7 +1,7 @@
 local treesitter = require'nvim-treesitter.configs'
 
 treesitter.setup {
-  ensure_installed = {"typescript", "javascript", "python", "svelte", "java"},
+  ensure_installed = "maintained",
   indent = {
     enable = true,
   },

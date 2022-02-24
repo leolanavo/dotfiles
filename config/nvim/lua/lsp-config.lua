@@ -32,7 +32,7 @@ local on_attach = function(client, bufnr)
   set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
   set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
   set_keymap('n', 'gh', '<Cmd>lua vim.lsp.buf.hover()<CR>')
-  set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  set_keymap('n', '<C-p>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
   set_keymap('n', '<space>rm', '<cmd>lua vim.lsp.buf.rename()<CR>')
   set_keymap('n', '<space>rr', '<cmd>lua vim.lsp.buf.references()<CR>')
   set_keymap('n', '<space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
@@ -65,4 +65,8 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({}))
 lspconfig.dockerls.setup(coq.lsp_ensure_capabilities({}))
 
 lspconfig.svelte.setup(coq.lsp_ensure_capabilities({}))
+
+lspconfig.elixirls.setup(coq.lsp_ensure_capabilities({
+	cmd = { "~/Programming/lsp/elixir-ls/language_server.sh" };
+}))
 

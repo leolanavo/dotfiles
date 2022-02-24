@@ -55,8 +55,8 @@ Plug 'dracula/vim'
 "--- Preview ---
 "---------------
 
+Plug 'ellisonleao/glow.nvim'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': ['markdown'] }
-
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 call plug#end()
