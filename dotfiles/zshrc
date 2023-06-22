@@ -7,6 +7,8 @@ export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export PATH=$PATH:/home/lana/scripts:$(ruby -e "print Gem.user_dir")/bin
 export PATH="$HOME/.yarn/bin:$PATH"
+export DENO_INSTALL="/home/leolanavo/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 #######################
 ### Theme's options ###

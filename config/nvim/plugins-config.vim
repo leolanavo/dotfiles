@@ -1,6 +1,6 @@
-"=== Nvim LSP Config ===
-exec 'luafile' expand(g:custom_path . 'lua/lsp-config.lua')
-autocmd VimEnter * :COQnow
+"=== Nvim LSP Config ==
+"exec 'luafile' expand(g:custom_path . 'lua/lsp-config.lua')
+"autocmd VimEnter * :COQnow
 
 "=== Nvim Compe ===
 "exec 'luafile' expand(g:custom_path . 'lua/nvim-compe.lua')
@@ -9,7 +9,7 @@ autocmd VimEnter * :COQnow
 exec 'luafile' expand(g:custom_path . 'lua/telescope-nvim.lua')
 
 "=== TreeSitter ===
-exec 'luafile' expand(g:custom_path . 'lua/treesitter.lua')
+"exec 'luafile' expand(g:custom_path . 'lua/treesitter.lua')
 
 "=== GitGutter Options ===
 

@@ -11,10 +11,10 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mattn/emmet-vim'
 
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+"-- Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+"-- Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+"-- Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 
 Plug 'nvim-lua/plenary.nvim' "Required by telescope
 Plug 'nvim-telescope/telescope.nvim' "Better than fzf, amazing search

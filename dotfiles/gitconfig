@@ -6,9 +6,9 @@
 	helper = cache
 [core]
 	excludesfile = ~/.gitignore_global
-    editor=nvim
+	editor=nvim
 [diff]
-    tool = nvim
+	tool = nvim
 [difftool]
 	prompt = false
 [merge]
@@ -63,4 +63,4 @@
     help = normal
     error = normal
 [init]
-	defaultBranch = main
+    defaultBranch = main
