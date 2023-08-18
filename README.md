@@ -3,6 +3,8 @@
 This is my collection of configuration files, it contains configuration for
 neovim, zshell, i3, polybar, termite, rofi, git, compton, bash.
 
+Font: FiraCode Nerd Font
+
 
 | Program        |          Dependencies           |
 |----------------|---------------------------------|
