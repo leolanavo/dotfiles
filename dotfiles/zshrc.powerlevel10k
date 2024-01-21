@@ -83,5 +83,41 @@ alias c="code -r ."
 alias vim="~/nvim.appimage"
 alias grbor="git rebase origin/$(git_current_branch)"
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/leonardo.lana/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/leonardo.lana/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/leonardo.lana/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/leonardo.lana/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Bayer specifics
+
+source ~/generate_artifactory_auth_token.sh
+bin-token
+
+export NODE_EXTRA_CA_CERTS=~/proxy-fix-bundle/allCAbundle.pem
+export CURL_CA_BUNDLE=~/proxy-fix-bundle/allCAbundle.pem
+export REQUESTS_CA_BUNDLE=~/proxy-fix-bundle/allCAbundle.pem
+export SSL_CERT_FILE=~/proxy-fix-bundle/allCAbundle.pem
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/leonardo.lana/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/leonardo.lana/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/leonardo.lana/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/leonardo.lana/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
