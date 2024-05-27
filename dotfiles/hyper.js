@@ -142,7 +142,8 @@ module.exports = {
         "hypercwd",
         "hyper-search",
         "hyper-pane",
-        "hyper-tabs-enhanced"
+        "hyper-tabs-enhanced",
+        "hyper-rename-tab"
     ],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
