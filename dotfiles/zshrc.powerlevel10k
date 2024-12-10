@@ -58,13 +58,18 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='252'
 ### Plugins ###
 ###############
 
-plugins=(git docker-compose kubectl archlinux zsh-syntax-highlighting)
+plugins=(git docker-compose kubectl archlinux zsh-syntax-highlighting direnv)
 
 ##############
 ### Source ###
 ##############
 
 source $ZSH/oh-my-zsh.sh
+source ~/generate_artifactory_auth_token.sh
+
+for f in /Users/leonardo.lana/Programming/Bayer/Utils/scripts/bin/*.sh;
+ do source $f;
+done
 
 ###############
 ### Aliases ###
@@ -84,6 +89,7 @@ alias c="code -r ."
 alias vim="~/nvim.appimage"
 alias grbor="git rebase origin/$(git_current_branch)"
 
+## Bayer ####
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -96,13 +102,16 @@ if [ -f '/Users/leonardo.lana/Downloads/google-cloud-sdk/completion.zsh.inc' ]; 
 
 # Bayer specifics
 
-source ~/generate_artifactory_auth_token.sh
 bin-token
 
 export NODE_EXTRA_CA_CERTS=~/proxy-fix-bundle/allCAbundle.pem
 export CURL_CA_BUNDLE=~/proxy-fix-bundle/allCAbundle.pem
 export REQUESTS_CA_BUNDLE=~/proxy-fix-bundle/allCAbundle.pem
 export SSL_CERT_FILE=~/proxy-fix-bundle/allCAbundle.pem
+
+export PIP_INDEX_URL="https://$ARTIFACTORY_SVC_ACCT:$ARTIFACTORY_SVC_ACCT_PWD@$ARTIFACTORY_HOST/api/pypi/pypi/simple"
+export POETRY_HTTP_BASIC_CLIMATE_USERNAME=$ARTIFACTORY_SVC_ACCT
+export POETRY_HTTP_BASIC_CLIMATE_PASSWORD=$ARTIFACTORY_SVC_ACCT_PWD
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -121,4 +130,5 @@ unset __conda_setup
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
 
